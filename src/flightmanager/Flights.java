@@ -46,6 +46,7 @@ public class Flights extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         FSourceCb = new javax.swing.JComboBox<>();
         FDestCb = new javax.swing.JComboBox<>();
+        FDateTb = new com.toedter.calendar.JDateChooser();
         FCodeTb = new javax.swing.JTextField();
         FSeatsTb = new javax.swing.JTextField();
         SaveBtn = new javax.swing.JButton();
@@ -86,6 +87,8 @@ public class Flights extends javax.swing.JFrame {
 
         FDestCb.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         FDestCb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        FDateTb.setDateFormatString("yyyy-MM-dd");
 
         FCodeTb.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
 
@@ -190,9 +193,14 @@ public class Flights extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(FDestCb, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel5)
                         .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(FDateTb, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(18, 18, 18)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
@@ -215,6 +223,7 @@ public class Flights extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(FDestCb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(FDateTb, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(FSourceCb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(FCodeTb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -254,10 +263,10 @@ public class Flights extends javax.swing.JFrame {
     private void DisplayFlight()
     {
         try {
-            Con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/flytest", "ien", "7302");
+            Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/flight","root","1234");
             St = Con.createStatement();
-            Rs = St.executeQuery("select * from flight");
-            FlightTable.setModel(DbUtils.resultSetToTableModel(Rs));
+            Rs = St.executeQuery("SELECT * FROM FlightsTbl");
+            FlightsTable.setModel(DbUtils.resultSetToTableModel(Rs));
         } catch (Exception e) {
         }
     }
@@ -282,21 +291,16 @@ public class Flights extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Missing Information");
         } else{
             try{
-                Con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/flytest", "ien", "7302");
-                PreparedStatement Add = Con.prepareStatement("insert into flights values(?,?,?,?,?,?,?,?)");
+                Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/flight","root","1234");
+                PreparedStatement Add = Con.prepareStatement("INSERT INTO FlightsTbl VALUES(?,?,?,?,?)");
                 Add.setString(1, FCodeTb.getText());
-                Add.setString(2, FSourceCb.getText();
-                Add.setString(3, FDestCb.getText());
-                java.util.Date javaDateD = FDateDepart.getDate();
-                java.util.Date javaDateA = FDateArrive.getDate();
-		        long javaTimeD = javaDateD.getTime();
-                long javaTimeA = javaDateA.getTime();
-		        java.sql.Date sqlDateD = new java.sql.Date(javaTimeD);
-                java.sql.Date sqlDateA = new java.sql.Date(javaTimeA);
-                Add.setDateD(4, sqlDateD);
-                Add.setDateD(5, sqlDateA);
-                Add.setInt(6, Integer.valueOf(FSeatsTb.getText()));
-                Add.setInt(7, Integer.valueOf(FPrice.getText()));
+                Add.setString(2, FSourceCb.getSelectedItem().toString());
+                Add.setString(3, FDestCb.getSelectedItem().toString());
+                java.util.Date javaDate = FDateTb.getDate();
+		long javaTime = javaDate.getTime();
+		java.sql.Date sqlDate = new java.sql.Date(javaTime);
+                Add.setDate(4, sqlDate);
+                Add.setInt(5, Integer.valueOf(FSeatsTb.getText()));
                 int row = Add.executeUpdate();
                 JOptionPane.showMessageDialog(this, "Flight Added");
                 Con.close();
@@ -314,8 +318,8 @@ public class Flights extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Select a flight");
         } else{
             try {
-                Con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/flytest", "ien", "7302");
-                String Query = "delete from flights where flight_id = '"+Key+"'";
+                Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/flight","root","1234");
+                String Query = "DELETE FROM FlightsTbl WHERE FlCode='" + Key + "'";
                 Statement Del = Con.createStatement();
                 Del.executeUpdate(Query);
                 JOptionPane.showMessageDialog(this, "Flight deleted");
@@ -350,23 +354,17 @@ public class Flights extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Select a flight");
         } else{
             try{
-                Con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/flytest", "ien", "7302");
-                String Query = "update flights set airline = ?, departure = ?, arrival = ?, departure_date = ?, arrival_date = ?, available_seats = ?, price = ? where flight_id = ?";
+                Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/flight","root","1234");
+                String Query = "UPDATE FlightsTbl SET FlSource=?,FlDest=?,FlDate=?,FlSeats=? WHERE FlCode=?";
                 PreparedStatement Add = Con.prepareStatement(Query);
-                Add.setString(1, FCodeTb.getText());
-                Add.setString(2, FSourceCb.getSelectedItem().toString());
-                Add.setString(3, FDestCb.getSelectedItem().toString());
-                java.util.Date javaDateD = FDateDepart.getDate();
-                java.util.Date javaDateA = FDateArrive.getDate();
-                long javaTimeD = javaDateD.getTime();
-                long javaTimeA = javaDateA.getTime();
-                java.sql.Date sqlDateD = new java.sql.Date(javaTimeD);
-                java.sql.Date sqlDateA = new java.sql.Date(javaTimeA);
-                Add.setDateD(4, sqlDateD);
-                Add.setDateD(5, sqlDateA);
-                Add.setInt(6, Integer.valueOf(FSeatsTb.getText()));
-                Add.setInt(7, Integer.valueOf(FPrice.getText()));
-                Add.setString(8, Key);
+                Add.setString(5, Key);
+                Add.setString(1, FSourceCb.getSelectedItem().toString());
+                Add.setString(2, FDestCb.getSelectedItem().toString());
+                java.util.Date javaDate = FDateTb.getDate();
+                long javaTime = javaDate.getTime();
+                java.sql.Date sqlDate = new java.sql.Date(javaTime);
+                Add.setDate(3, sqlDate);
+                Add.setString(4, FSeatsTb.getText());
                 int row = Add.executeUpdate();
                 JOptionPane.showMessageDialog(this, "Flight updated");
                 Con.close();
@@ -418,6 +416,7 @@ public class Flights extends javax.swing.JFrame {
     private javax.swing.JButton DeleteBtn;
     private javax.swing.JButton EditBtn;
     private javax.swing.JTextField FCodeTb;
+    private com.toedter.calendar.JDateChooser FDateTb;
     private javax.swing.JComboBox<String> FDestCb;
     private javax.swing.JTextField FSeatsTb;
     private javax.swing.JComboBox<String> FSourceCb;
