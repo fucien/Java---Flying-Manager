@@ -32,11 +32,13 @@ public class Loading extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 102));
+        jPanel1.setBackground(new java.awt.Color(27, 46, 83));
 
         jLabel1.setFont(new java.awt.Font("Zapfino", 3, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 51, 0));
+        jLabel1.setForeground(new java.awt.Color(255, 62, 62));
         jLabel1.setText("Welcome to TTTU Airline");
+
+        jProgressBar1.setForeground(new java.awt.Color(255, 51, 0));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
