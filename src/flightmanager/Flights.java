@@ -61,25 +61,32 @@ public class Flights extends javax.swing.JFrame {
         setUndecorated(true);
         setResizable(false);
 
+        jPanel1.setBackground(new java.awt.Color(27, 46, 83));
         jPanel1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jPanel1.setPreferredSize(new java.awt.Dimension(750, 450));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 62, 62));
         jLabel3.setText("Manage Flights");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Flight code");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Source");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Destination");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Take of date");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Number of seat");
 
         FSourceCb.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -94,7 +101,9 @@ public class Flights extends javax.swing.JFrame {
 
         FSeatsTb.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
 
+        SaveBtn.setBackground(new java.awt.Color(255, 62, 62));
         SaveBtn.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        SaveBtn.setForeground(new java.awt.Color(255, 255, 255));
         SaveBtn.setText("Save");
         SaveBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -102,7 +111,9 @@ public class Flights extends javax.swing.JFrame {
             }
         });
 
+        EditBtn.setBackground(new java.awt.Color(255, 62, 62));
         EditBtn.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        EditBtn.setForeground(new java.awt.Color(255, 255, 255));
         EditBtn.setText("Edit");
         EditBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -110,7 +121,9 @@ public class Flights extends javax.swing.JFrame {
             }
         });
 
+        DeleteBtn.setBackground(new java.awt.Color(255, 62, 62));
         DeleteBtn.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        DeleteBtn.setForeground(new java.awt.Color(255, 255, 255));
         DeleteBtn.setText("Delete");
         DeleteBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -118,7 +131,9 @@ public class Flights extends javax.swing.JFrame {
             }
         });
 
+        BackBtn.setBackground(new java.awt.Color(255, 62, 62));
         BackBtn.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        BackBtn.setForeground(new java.awt.Color(255, 255, 255));
         BackBtn.setText("Back");
         BackBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -145,6 +160,7 @@ public class Flights extends javax.swing.JFrame {
         jScrollPane1.setViewportView(FlightsTable);
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("List");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

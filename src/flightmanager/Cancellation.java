@@ -56,13 +56,19 @@ public class Cancellation extends javax.swing.JFrame {
         setUndecorated(true);
         setResizable(false);
 
+        jPanel3.setBackground(new java.awt.Color(27, 46, 83));
+
         jLabel5.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 62, 62));
         jLabel5.setText("Ticket Cancellation");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Ticket ID");
 
+        ResetBtn.setBackground(new java.awt.Color(255, 62, 62));
         ResetBtn.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        ResetBtn.setForeground(new java.awt.Color(255, 255, 255));
         ResetBtn.setText("Reset");
         ResetBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -71,12 +77,16 @@ public class Cancellation extends javax.swing.JFrame {
         });
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Take of date");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Flight code");
 
+        CancelBtn.setBackground(new java.awt.Color(255, 62, 62));
         CancelBtn.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        CancelBtn.setForeground(new java.awt.Color(255, 255, 255));
         CancelBtn.setText("Cancel");
         CancelBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -102,7 +112,9 @@ public class Cancellation extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(CancellationTable);
 
+        BackBtn.setBackground(new java.awt.Color(255, 62, 62));
         BackBtn.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        BackBtn.setForeground(new java.awt.Color(255, 255, 255));
         BackBtn.setText("Back");
         BackBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -120,6 +132,7 @@ public class Cancellation extends javax.swing.JFrame {
         FCodeTb.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("List");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -183,10 +196,11 @@ public class Cancellation extends javax.swing.JFrame {
                         .addComponent(FCodeTb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(TIdCb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(CancelBtn)
-                    .addComponent(ResetBtn)
-                    .addComponent(BackBtn))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(ResetBtn)
+                        .addComponent(BackBtn)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
