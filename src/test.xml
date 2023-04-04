@@ -1,0 +1,212 @@
+<OTA_AirDetailsRS xmlns="http://www.opentravel.org/OTA/2003/05" PrimaryLangID="eng" Version="1.0" TransactionIdentifier="" FLSNote="This XML adds attributes not in the OTA XML spec. All such attributes start with FLS" FLSDevice="ota-xml-expanded">
+<Success/>
+<FLSResponseFields FLSOriginCode="SGN" FLSOriginName="Tan Son Nhat International Airport" FLSDestinationCode="DAD" FLSDestinationName="Da Nang International Airport" FLSStartDate="2023-03-31" FLSEndDate="2023-03-31" FLSResultCount="26" FLSRoutesFound="54" FLSBranchCount="62" FLSTargetCount="67" FLSRecordCount="4528"/>
+<FlightDetails TotalFlightTime="PT1H20M" TotalMiles="376" TotalTripTime="PT1H20M" FLSDepartureDateTime="2023-03-31T05:35:00" FLSDepartureTimeOffset="+0700" FLSDepartureCode="SGN" FLSDepartureName="Tan Son Nhat International Airport" FLSArrivalDateTime="2023-03-31T06:55:00" FLSArrivalTimeOffset="+0700" FLSArrivalCode="DAD" FLSArrivalName="Da Nang International Airport" FLSFlightType="NonStop" FLSFlightLegs="1" FLSFlightDays="....5.." FLSDayIndicator="">
+<FlightLegDetails DepartureDateTime="2023-03-31T05:35:00" FLSDepartureTimeOffset="+0700" ArrivalDateTime="2023-03-31T06:55:00" FLSArrivalTimeOffset="+0700" FlightNumber="620" JourneyDuration="PT1H20M" SequenceNumber="1" LegDistance="376" FLSMeals="" FLSInflightServices=" " FLSUUID="SGNDAD20230331VJ620">
+<DepartureAirport CodeContext="IATA" LocationCode="SGN" FLSLocationName="Tan Son Nhat International Airport" Terminal="1" FLSDayIndicator=""/>
+<ArrivalAirport CodeContext="IATA" LocationCode="DAD" FLSLocationName="Da Nang International Airport" Terminal=" " FLSDayIndicator=""/>
+<MarketingAirline Code="VJ" CodeContext="IATA" CompanyShortName="VietJet Air"/>
+<Equipment AirEquipType="321"/>
+</FlightLegDetails>
+</FlightDetails>
+<FlightDetails TotalFlightTime="PT1H20M" TotalMiles="376" TotalTripTime="PT1H20M" FLSDepartureDateTime="2023-03-31T05:45:00" FLSDepartureTimeOffset="+0700" FLSDepartureCode="SGN" FLSDepartureName="Tan Son Nhat International Airport" FLSArrivalDateTime="2023-03-31T07:05:00" FLSArrivalTimeOffset="+0700" FLSArrivalCode="DAD" FLSArrivalName="Da Nang International Airport" FLSFlightType="NonStop" FLSFlightLegs="1" FLSFlightDays="....5.." FLSDayIndicator="">
+<FlightLegDetails DepartureDateTime="2023-03-31T05:45:00" FLSDepartureTimeOffset="+0700" ArrivalDateTime="2023-03-31T07:05:00" FLSArrivalTimeOffset="+0700" FlightNumber="150" JourneyDuration="PT1H20M" SequenceNumber="1" LegDistance="376" FLSMeals="" FLSInflightServices=" " FLSUUID="SGNDAD20230331QH150">
+<DepartureAirport CodeContext="IATA" LocationCode="SGN" FLSLocationName="Tan Son Nhat International Airport" Terminal="1" FLSDayIndicator=""/>
+<ArrivalAirport CodeContext="IATA" LocationCode="DAD" FLSLocationName="Da Nang International Airport" Terminal="1" FLSDayIndicator=""/>
+<MarketingAirline Code="QH" CodeContext="IATA" CompanyShortName="Bamboo Airways"/>
+<Equipment AirEquipType="320"/>
+</FlightLegDetails>
+</FlightDetails>
+<FlightDetails TotalFlightTime="PT1H30M" TotalMiles="376" TotalTripTime="PT1H30M" FLSDepartureDateTime="2023-03-31T05:45:00" FLSDepartureTimeOffset="+0700" FLSDepartureCode="SGN" FLSDepartureName="Tan Son Nhat International Airport" FLSArrivalDateTime="2023-03-31T07:15:00" FLSArrivalTimeOffset="+0700" FLSArrivalCode="DAD" FLSArrivalName="Da Nang International Airport" FLSFlightType="NonStop" FLSFlightLegs="1" FLSFlightDays="....5.." FLSDayIndicator="">
+<FlightLegDetails DepartureDateTime="2023-03-31T05:45:00" FLSDepartureTimeOffset="+0700" ArrivalDateTime="2023-03-31T07:15:00" FLSArrivalTimeOffset="+0700" FlightNumber="108" JourneyDuration="PT1H30M" SequenceNumber="1" LegDistance="376" FLSMeals="N" FLSInflightServices=" " FLSUUID="SGNDAD20230331VN108">
+<DepartureAirport CodeContext="IATA" LocationCode="SGN" FLSLocationName="Tan Son Nhat International Airport" Terminal="1" FLSDayIndicator=""/>
+<ArrivalAirport CodeContext="IATA" LocationCode="DAD" FLSLocationName="Da Nang International Airport" Terminal="1" FLSDayIndicator=""/>
+<MarketingAirline Code="VN" CodeContext="IATA" CompanyShortName="Vietnam Airlines"/>
+<Equipment AirEquipType="321"/>
+</FlightLegDetails>
+</FlightDetails>
+<FlightDetails TotalFlightTime="PT1H20M" TotalMiles="376" TotalTripTime="PT1H20M" FLSDepartureDateTime="2023-03-31T06:45:00" FLSDepartureTimeOffset="+0700" FLSDepartureCode="SGN" FLSDepartureName="Tan Son Nhat International Airport" FLSArrivalDateTime="2023-03-31T08:05:00" FLSArrivalTimeOffset="+0700" FLSArrivalCode="DAD" FLSArrivalName="Da Nang International Airport" FLSFlightType="NonStop" FLSFlightLegs="1" FLSFlightDays="....5.." FLSDayIndicator="">
+<FlightLegDetails DepartureDateTime="2023-03-31T06:45:00" FLSDepartureTimeOffset="+0700" ArrivalDateTime="2023-03-31T08:05:00" FLSArrivalTimeOffset="+0700" FlightNumber="6052" JourneyDuration="PT1H20M" SequenceNumber="1" LegDistance="376" FLSMeals="" FLSInflightServices=" " FLSUUID="SGNDAD20230331VN6052" FLSDOTDisclosure="Owned By:BL">
+<DepartureAirport CodeContext="IATA" LocationCode="SGN" FLSLocationName="Tan Son Nhat International Airport" Terminal="1" FLSDayIndicator=""/>
+<ArrivalAirport CodeContext="IATA" LocationCode="DAD" FLSLocationName="Da Nang International Airport" Terminal="1" FLSDayIndicator=""/>
+<MarketingAirline Code="VN" CodeContext="IATA" CompanyShortName="Vietnam Airlines"/>
+<Equipment AirEquipType="320"/>
+</FlightLegDetails>
+</FlightDetails>
+<FlightDetails TotalFlightTime="PT1H20M" TotalMiles="376" TotalTripTime="PT1H20M" FLSDepartureDateTime="2023-03-31T07:05:00" FLSDepartureTimeOffset="+0700" FLSDepartureCode="SGN" FLSDepartureName="Tan Son Nhat International Airport" FLSArrivalDateTime="2023-03-31T08:25:00" FLSArrivalTimeOffset="+0700" FLSArrivalCode="DAD" FLSArrivalName="Da Nang International Airport" FLSFlightType="NonStop" FLSFlightLegs="1" FLSFlightDays="....5.." FLSDayIndicator="">
+<FlightLegDetails DepartureDateTime="2023-03-31T07:05:00" FLSDepartureTimeOffset="+0700" ArrivalDateTime="2023-03-31T08:25:00" FLSArrivalTimeOffset="+0700" FlightNumber="622" JourneyDuration="PT1H20M" SequenceNumber="1" LegDistance="376" FLSMeals="" FLSInflightServices=" " FLSUUID="SGNDAD20230331VJ622">
+<DepartureAirport CodeContext="IATA" LocationCode="SGN" FLSLocationName="Tan Son Nhat International Airport" Terminal="1" FLSDayIndicator=""/>
+<ArrivalAirport CodeContext="IATA" LocationCode="DAD" FLSLocationName="Da Nang International Airport" Terminal=" " FLSDayIndicator=""/>
+<MarketingAirline Code="VJ" CodeContext="IATA" CompanyShortName="VietJet Air"/>
+<Equipment AirEquipType="321"/>
+</FlightLegDetails>
+</FlightDetails>
+<FlightDetails TotalFlightTime="PT1H25M" TotalMiles="376" TotalTripTime="PT1H25M" FLSDepartureDateTime="2023-03-31T07:05:00" FLSDepartureTimeOffset="+0700" FLSDepartureCode="SGN" FLSDepartureName="Tan Son Nhat International Airport" FLSArrivalDateTime="2023-03-31T08:30:00" FLSArrivalTimeOffset="+0700" FLSArrivalCode="DAD" FLSArrivalName="Da Nang International Airport" FLSFlightType="NonStop" FLSFlightLegs="1" FLSFlightDays="....5.." FLSDayIndicator="">
+<FlightLegDetails DepartureDateTime="2023-03-31T07:05:00" FLSDepartureTimeOffset="+0700" ArrivalDateTime="2023-03-31T08:30:00" FLSArrivalTimeOffset="+0700" FlightNumber="112" JourneyDuration="PT1H25M" SequenceNumber="1" LegDistance="376" FLSMeals="N" FLSInflightServices=" " FLSUUID="SGNDAD20230331VN112">
+<DepartureAirport CodeContext="IATA" LocationCode="SGN" FLSLocationName="Tan Son Nhat International Airport" Terminal="1" FLSDayIndicator=""/>
+<ArrivalAirport CodeContext="IATA" LocationCode="DAD" FLSLocationName="Da Nang International Airport" Terminal="1" FLSDayIndicator=""/>
+<MarketingAirline Code="VN" CodeContext="IATA" CompanyShortName="Vietnam Airlines"/>
+<Equipment AirEquipType="321"/>
+</FlightLegDetails>
+</FlightDetails>
+<FlightDetails TotalFlightTime="PT1H20M" TotalMiles="376" TotalTripTime="PT1H20M" FLSDepartureDateTime="2023-03-31T07:10:00" FLSDepartureTimeOffset="+0700" FLSDepartureCode="SGN" FLSDepartureName="Tan Son Nhat International Airport" FLSArrivalDateTime="2023-03-31T08:30:00" FLSArrivalTimeOffset="+0700" FLSArrivalCode="DAD" FLSArrivalName="Da Nang International Airport" FLSFlightType="NonStop" FLSFlightLegs="1" FLSFlightDays="....5.." FLSDayIndicator="">
+<FlightLegDetails DepartureDateTime="2023-03-31T07:10:00" FLSDepartureTimeOffset="+0700" ArrivalDateTime="2023-03-31T08:30:00" FLSArrivalTimeOffset="+0700" FlightNumber="672" JourneyDuration="PT1H20M" SequenceNumber="1" LegDistance="376" FLSMeals="" FLSInflightServices=" " FLSUUID="SGNDAD20230331VU672">
+<DepartureAirport CodeContext="IATA" LocationCode="SGN" FLSLocationName="Tan Son Nhat International Airport" Terminal=" " FLSDayIndicator=""/>
+<ArrivalAirport CodeContext="IATA" LocationCode="DAD" FLSLocationName="Da Nang International Airport" Terminal=" " FLSDayIndicator=""/>
+<MarketingAirline Code="VU" CodeContext="IATA" CompanyShortName="Vietravel Airlines"/>
+<Equipment AirEquipType="321"/>
+</FlightLegDetails>
+</FlightDetails>
+<FlightDetails TotalFlightTime="PT1H25M" TotalMiles="376" TotalTripTime="PT1H25M" FLSDepartureDateTime="2023-03-31T07:35:00" FLSDepartureTimeOffset="+0700" FLSDepartureCode="SGN" FLSDepartureName="Tan Son Nhat International Airport" FLSArrivalDateTime="2023-03-31T09:00:00" FLSArrivalTimeOffset="+0700" FLSArrivalCode="DAD" FLSArrivalName="Da Nang International Airport" FLSFlightType="NonStop" FLSFlightLegs="1" FLSFlightDays="....5.." FLSDayIndicator="">
+<FlightLegDetails DepartureDateTime="2023-03-31T07:35:00" FLSDepartureTimeOffset="+0700" ArrivalDateTime="2023-03-31T09:00:00" FLSArrivalTimeOffset="+0700" FlightNumber="114" JourneyDuration="PT1H25M" SequenceNumber="1" LegDistance="376" FLSMeals="N" FLSInflightServices=" " FLSUUID="SGNDAD20230331VN114">
+<DepartureAirport CodeContext="IATA" LocationCode="SGN" FLSLocationName="Tan Son Nhat International Airport" Terminal="1" FLSDayIndicator=""/>
+<ArrivalAirport CodeContext="IATA" LocationCode="DAD" FLSLocationName="Da Nang International Airport" Terminal="1" FLSDayIndicator=""/>
+<MarketingAirline Code="VN" CodeContext="IATA" CompanyShortName="Vietnam Airlines"/>
+<Equipment AirEquipType="321"/>
+</FlightLegDetails>
+</FlightDetails>
+<FlightDetails TotalFlightTime="PT1H25M" TotalMiles="376" TotalTripTime="PT1H25M" FLSDepartureDateTime="2023-03-31T08:40:00" FLSDepartureTimeOffset="+0700" FLSDepartureCode="SGN" FLSDepartureName="Tan Son Nhat International Airport" FLSArrivalDateTime="2023-03-31T10:05:00" FLSArrivalTimeOffset="+0700" FLSArrivalCode="DAD" FLSArrivalName="Da Nang International Airport" FLSFlightType="NonStop" FLSFlightLegs="1" FLSFlightDays="....5.." FLSDayIndicator="">
+<FlightLegDetails DepartureDateTime="2023-03-31T08:40:00" FLSDepartureTimeOffset="+0700" ArrivalDateTime="2023-03-31T10:05:00" FLSArrivalTimeOffset="+0700" FlightNumber="116" JourneyDuration="PT1H25M" SequenceNumber="1" LegDistance="376" FLSMeals="N" FLSInflightServices=" " FLSUUID="SGNDAD20230331VN116">
+<DepartureAirport CodeContext="IATA" LocationCode="SGN" FLSLocationName="Tan Son Nhat International Airport" Terminal="1" FLSDayIndicator=""/>
+<ArrivalAirport CodeContext="IATA" LocationCode="DAD" FLSLocationName="Da Nang International Airport" Terminal="1" FLSDayIndicator=""/>
+<MarketingAirline Code="VN" CodeContext="IATA" CompanyShortName="Vietnam Airlines"/>
+<Equipment AirEquipType="321"/>
+</FlightLegDetails>
+</FlightDetails>
+<FlightDetails TotalFlightTime="PT1H20M" TotalMiles="376" TotalTripTime="PT1H20M" FLSDepartureDateTime="2023-03-31T09:35:00" FLSDepartureTimeOffset="+0700" FLSDepartureCode="SGN" FLSDepartureName="Tan Son Nhat International Airport" FLSArrivalDateTime="2023-03-31T10:55:00" FLSArrivalTimeOffset="+0700" FLSArrivalCode="DAD" FLSArrivalName="Da Nang International Airport" FLSFlightType="NonStop" FLSFlightLegs="1" FLSFlightDays="....5.." FLSDayIndicator="">
+<FlightLegDetails DepartureDateTime="2023-03-31T09:35:00" FLSDepartureTimeOffset="+0700" ArrivalDateTime="2023-03-31T10:55:00" FLSArrivalTimeOffset="+0700" FlightNumber="624" JourneyDuration="PT1H20M" SequenceNumber="1" LegDistance="376" FLSMeals="" FLSInflightServices=" " FLSUUID="SGNDAD20230331VJ624">
+<DepartureAirport CodeContext="IATA" LocationCode="SGN" FLSLocationName="Tan Son Nhat International Airport" Terminal="1" FLSDayIndicator=""/>
+<ArrivalAirport CodeContext="IATA" LocationCode="DAD" FLSLocationName="Da Nang International Airport" Terminal=" " FLSDayIndicator=""/>
+<MarketingAirline Code="VJ" CodeContext="IATA" CompanyShortName="VietJet Air"/>
+<Equipment AirEquipType="321"/>
+</FlightLegDetails>
+</FlightDetails>
+<FlightDetails TotalFlightTime="PT1H30M" TotalMiles="376" TotalTripTime="PT1H30M" FLSDepartureDateTime="2023-03-31T09:50:00" FLSDepartureTimeOffset="+0700" FLSDepartureCode="SGN" FLSDepartureName="Tan Son Nhat International Airport" FLSArrivalDateTime="2023-03-31T11:20:00" FLSArrivalTimeOffset="+0700" FLSArrivalCode="DAD" FLSArrivalName="Da Nang International Airport" FLSFlightType="NonStop" FLSFlightLegs="1" FLSFlightDays="....5.." FLSDayIndicator="">
+<FlightLegDetails DepartureDateTime="2023-03-31T09:50:00" FLSDepartureTimeOffset="+0700" ArrivalDateTime="2023-03-31T11:20:00" FLSArrivalTimeOffset="+0700" FlightNumber="124" JourneyDuration="PT1H30M" SequenceNumber="1" LegDistance="376" FLSMeals="N" FLSInflightServices=" " FLSUUID="SGNDAD20230331VN124">
+<DepartureAirport CodeContext="IATA" LocationCode="SGN" FLSLocationName="Tan Son Nhat International Airport" Terminal="1" FLSDayIndicator=""/>
+<ArrivalAirport CodeContext="IATA" LocationCode="DAD" FLSLocationName="Da Nang International Airport" Terminal="1" FLSDayIndicator=""/>
+<MarketingAirline Code="VN" CodeContext="IATA" CompanyShortName="Vietnam Airlines"/>
+<Equipment AirEquipType="321"/>
+</FlightLegDetails>
+</FlightDetails>
+<FlightDetails TotalFlightTime="PT1H20M" TotalMiles="376" TotalTripTime="PT1H20M" FLSDepartureDateTime="2023-03-31T11:30:00" FLSDepartureTimeOffset="+0700" FLSDepartureCode="SGN" FLSDepartureName="Tan Son Nhat International Airport" FLSArrivalDateTime="2023-03-31T12:50:00" FLSArrivalTimeOffset="+0700" FLSArrivalCode="DAD" FLSArrivalName="Da Nang International Airport" FLSFlightType="NonStop" FLSFlightLegs="1" FLSFlightDays="....5.." FLSDayIndicator="">
+<FlightLegDetails DepartureDateTime="2023-03-31T11:30:00" FLSDepartureTimeOffset="+0700" ArrivalDateTime="2023-03-31T12:50:00" FLSArrivalTimeOffset="+0700" FlightNumber="628" JourneyDuration="PT1H20M" SequenceNumber="1" LegDistance="376" FLSMeals="" FLSInflightServices=" " FLSUUID="SGNDAD20230331VJ628">
+<DepartureAirport CodeContext="IATA" LocationCode="SGN" FLSLocationName="Tan Son Nhat International Airport" Terminal="1" FLSDayIndicator=""/>
+<ArrivalAirport CodeContext="IATA" LocationCode="DAD" FLSLocationName="Da Nang International Airport" Terminal=" " FLSDayIndicator=""/>
+<MarketingAirline Code="VJ" CodeContext="IATA" CompanyShortName="VietJet Air"/>
+<Equipment AirEquipType="321"/>
+</FlightLegDetails>
+</FlightDetails>
+<FlightDetails TotalFlightTime="PT1H35M" TotalMiles="376" TotalTripTime="PT1H35M" FLSDepartureDateTime="2023-03-31T12:05:00" FLSDepartureTimeOffset="+0700" FLSDepartureCode="SGN" FLSDepartureName="Tan Son Nhat International Airport" FLSArrivalDateTime="2023-03-31T13:40:00" FLSArrivalTimeOffset="+0700" FLSArrivalCode="DAD" FLSArrivalName="Da Nang International Airport" FLSFlightType="NonStop" FLSFlightLegs="1" FLSFlightDays="....5.." FLSDayIndicator="">
+<FlightLegDetails DepartureDateTime="2023-03-31T12:05:00" FLSDepartureTimeOffset="+0700" ArrivalDateTime="2023-03-31T13:40:00" FLSArrivalTimeOffset="+0700" FlightNumber="136" JourneyDuration="PT1H35M" SequenceNumber="1" LegDistance="376" FLSMeals="N" FLSInflightServices=" " FLSUUID="SGNDAD20230331VN136">
+<DepartureAirport CodeContext="IATA" LocationCode="SGN" FLSLocationName="Tan Son Nhat International Airport" Terminal="1" FLSDayIndicator=""/>
+<ArrivalAirport CodeContext="IATA" LocationCode="DAD" FLSLocationName="Da Nang International Airport" Terminal="1" FLSDayIndicator=""/>
+<MarketingAirline Code="VN" CodeContext="IATA" CompanyShortName="Vietnam Airlines"/>
+<Equipment AirEquipType="321"/>
+</FlightLegDetails>
+</FlightDetails>
+<FlightDetails TotalFlightTime="PT1H20M" TotalMiles="376" TotalTripTime="PT1H20M" FLSDepartureDateTime="2023-03-31T13:35:00" FLSDepartureTimeOffset="+0700" FLSDepartureCode="SGN" FLSDepartureName="Tan Son Nhat International Airport" FLSArrivalDateTime="2023-03-31T14:55:00" FLSArrivalTimeOffset="+0700" FLSArrivalCode="DAD" FLSArrivalName="Da Nang International Airport" FLSFlightType="NonStop" FLSFlightLegs="1" FLSFlightDays="....5.." FLSDayIndicator="">
+<FlightLegDetails DepartureDateTime="2023-03-31T13:35:00" FLSDepartureTimeOffset="+0700" ArrivalDateTime="2023-03-31T14:55:00" FLSArrivalTimeOffset="+0700" FlightNumber="630" JourneyDuration="PT1H20M" SequenceNumber="1" LegDistance="376" FLSMeals="" FLSInflightServices=" " FLSUUID="SGNDAD20230331VJ630">
+<DepartureAirport CodeContext="IATA" LocationCode="SGN" FLSLocationName="Tan Son Nhat International Airport" Terminal="1" FLSDayIndicator=""/>
+<ArrivalAirport CodeContext="IATA" LocationCode="DAD" FLSLocationName="Da Nang International Airport" Terminal=" " FLSDayIndicator=""/>
+<MarketingAirline Code="VJ" CodeContext="IATA" CompanyShortName="VietJet Air"/>
+<Equipment AirEquipType="321"/>
+</FlightLegDetails>
+</FlightDetails>
+<FlightDetails TotalFlightTime="PT1H25M" TotalMiles="376" TotalTripTime="PT1H25M" FLSDepartureDateTime="2023-03-31T13:45:00" FLSDepartureTimeOffset="+0700" FLSDepartureCode="SGN" FLSDepartureName="Tan Son Nhat International Airport" FLSArrivalDateTime="2023-03-31T15:10:00" FLSArrivalTimeOffset="+0700" FLSArrivalCode="DAD" FLSArrivalName="Da Nang International Airport" FLSFlightType="NonStop" FLSFlightLegs="1" FLSFlightDays="....5.." FLSDayIndicator="">
+<FlightLegDetails DepartureDateTime="2023-03-31T13:45:00" FLSDepartureTimeOffset="+0700" ArrivalDateTime="2023-03-31T15:10:00" FLSArrivalTimeOffset="+0700" FlightNumber="6062" JourneyDuration="PT1H25M" SequenceNumber="1" LegDistance="376" FLSMeals="" FLSInflightServices=" " FLSUUID="SGNDAD20230331VN6062" FLSDOTDisclosure="Owned By:BL">
+<DepartureAirport CodeContext="IATA" LocationCode="SGN" FLSLocationName="Tan Son Nhat International Airport" Terminal="1" FLSDayIndicator=""/>
+<ArrivalAirport CodeContext="IATA" LocationCode="DAD" FLSLocationName="Da Nang International Airport" Terminal="1" FLSDayIndicator=""/>
+<MarketingAirline Code="VN" CodeContext="IATA" CompanyShortName="Vietnam Airlines"/>
+<Equipment AirEquipType="320"/>
+</FlightLegDetails>
+</FlightDetails>
+<FlightDetails TotalFlightTime="PT1H35M" TotalMiles="376" TotalTripTime="PT1H35M" FLSDepartureDateTime="2023-03-31T15:05:00" FLSDepartureTimeOffset="+0700" FLSDepartureCode="SGN" FLSDepartureName="Tan Son Nhat International Airport" FLSArrivalDateTime="2023-03-31T16:40:00" FLSArrivalTimeOffset="+0700" FLSArrivalCode="DAD" FLSArrivalName="Da Nang International Airport" FLSFlightType="NonStop" FLSFlightLegs="1" FLSFlightDays="....5.." FLSDayIndicator="">
+<FlightLegDetails DepartureDateTime="2023-03-31T15:05:00" FLSDepartureTimeOffset="+0700" ArrivalDateTime="2023-03-31T16:40:00" FLSArrivalTimeOffset="+0700" FlightNumber="128" JourneyDuration="PT1H35M" SequenceNumber="1" LegDistance="376" FLSMeals="N" FLSInflightServices=" " FLSUUID="SGNDAD20230331VN128">
+<DepartureAirport CodeContext="IATA" LocationCode="SGN" FLSLocationName="Tan Son Nhat International Airport" Terminal="1" FLSDayIndicator=""/>
+<ArrivalAirport CodeContext="IATA" LocationCode="DAD" FLSLocationName="Da Nang International Airport" Terminal="1" FLSDayIndicator=""/>
+<MarketingAirline Code="VN" CodeContext="IATA" CompanyShortName="Vietnam Airlines"/>
+<Equipment AirEquipType="321"/>
+</FlightLegDetails>
+</FlightDetails>
+<FlightDetails TotalFlightTime="PT1H20M" TotalMiles="376" TotalTripTime="PT1H20M" FLSDepartureDateTime="2023-03-31T15:40:00" FLSDepartureTimeOffset="+0700" FLSDepartureCode="SGN" FLSDepartureName="Tan Son Nhat International Airport" FLSArrivalDateTime="2023-03-31T17:00:00" FLSArrivalTimeOffset="+0700" FLSArrivalCode="DAD" FLSArrivalName="Da Nang International Airport" FLSFlightType="NonStop" FLSFlightLegs="1" FLSFlightDays="....5.." FLSDayIndicator="">
+<FlightLegDetails DepartureDateTime="2023-03-31T15:40:00" FLSDepartureTimeOffset="+0700" ArrivalDateTime="2023-03-31T17:00:00" FLSArrivalTimeOffset="+0700" FlightNumber="632" JourneyDuration="PT1H20M" SequenceNumber="1" LegDistance="376" FLSMeals="" FLSInflightServices=" " FLSUUID="SGNDAD20230331VJ632">
+<DepartureAirport CodeContext="IATA" LocationCode="SGN" FLSLocationName="Tan Son Nhat International Airport" Terminal="1" FLSDayIndicator=""/>
+<ArrivalAirport CodeContext="IATA" LocationCode="DAD" FLSLocationName="Da Nang International Airport" Terminal=" " FLSDayIndicator=""/>
+<MarketingAirline Code="VJ" CodeContext="IATA" CompanyShortName="VietJet Air"/>
+<Equipment AirEquipType="321"/>
+</FlightLegDetails>
+</FlightDetails>
+<FlightDetails TotalFlightTime="PT1H30M" TotalMiles="376" TotalTripTime="PT1H30M" FLSDepartureDateTime="2023-03-31T16:00:00" FLSDepartureTimeOffset="+0700" FLSDepartureCode="SGN" FLSDepartureName="Tan Son Nhat International Airport" FLSArrivalDateTime="2023-03-31T17:30:00" FLSArrivalTimeOffset="+0700" FLSArrivalCode="DAD" FLSArrivalName="Da Nang International Airport" FLSFlightType="NonStop" FLSFlightLegs="1" FLSFlightDays="....5.." FLSDayIndicator="">
+<FlightLegDetails DepartureDateTime="2023-03-31T16:00:00" FLSDepartureTimeOffset="+0700" ArrivalDateTime="2023-03-31T17:30:00" FLSArrivalTimeOffset="+0700" FlightNumber="132" JourneyDuration="PT1H30M" SequenceNumber="1" LegDistance="376" FLSMeals="N" FLSInflightServices=" " FLSUUID="SGNDAD20230331VN132">
+<DepartureAirport CodeContext="IATA" LocationCode="SGN" FLSLocationName="Tan Son Nhat International Airport" Terminal="1" FLSDayIndicator=""/>
+<ArrivalAirport CodeContext="IATA" LocationCode="DAD" FLSLocationName="Da Nang International Airport" Terminal="1" FLSDayIndicator=""/>
+<MarketingAirline Code="VN" CodeContext="IATA" CompanyShortName="Vietnam Airlines"/>
+<Equipment AirEquipType="321"/>
+</FlightLegDetails>
+</FlightDetails>
+<FlightDetails TotalFlightTime="PT1H20M" TotalMiles="376" TotalTripTime="PT1H20M" FLSDepartureDateTime="2023-03-31T16:05:00" FLSDepartureTimeOffset="+0700" FLSDepartureCode="SGN" FLSDepartureName="Tan Son Nhat International Airport" FLSArrivalDateTime="2023-03-31T17:25:00" FLSArrivalTimeOffset="+0700" FLSArrivalCode="DAD" FLSArrivalName="Da Nang International Airport" FLSFlightType="NonStop" FLSFlightLegs="1" FLSFlightDays="....5.." FLSDayIndicator="">
+<FlightLegDetails DepartureDateTime="2023-03-31T16:05:00" FLSDepartureTimeOffset="+0700" ArrivalDateTime="2023-03-31T17:25:00" FLSArrivalTimeOffset="+0700" FlightNumber="634" JourneyDuration="PT1H20M" SequenceNumber="1" LegDistance="376" FLSMeals="" FLSInflightServices=" " FLSUUID="SGNDAD20230331VJ634">
+<DepartureAirport CodeContext="IATA" LocationCode="SGN" FLSLocationName="Tan Son Nhat International Airport" Terminal="1" FLSDayIndicator=""/>
+<ArrivalAirport CodeContext="IATA" LocationCode="DAD" FLSLocationName="Da Nang International Airport" Terminal=" " FLSDayIndicator=""/>
+<MarketingAirline Code="VJ" CodeContext="IATA" CompanyShortName="VietJet Air"/>
+<Equipment AirEquipType="321"/>
+</FlightLegDetails>
+</FlightDetails>
+<FlightDetails TotalFlightTime="PT1H20M" TotalMiles="376" TotalTripTime="PT1H20M" FLSDepartureDateTime="2023-03-31T18:20:00" FLSDepartureTimeOffset="+0700" FLSDepartureCode="SGN" FLSDepartureName="Tan Son Nhat International Airport" FLSArrivalDateTime="2023-03-31T19:40:00" FLSArrivalTimeOffset="+0700" FLSArrivalCode="DAD" FLSArrivalName="Da Nang International Airport" FLSFlightType="NonStop" FLSFlightLegs="1" FLSFlightDays="....5.." FLSDayIndicator="">
+<FlightLegDetails DepartureDateTime="2023-03-31T18:20:00" FLSDepartureTimeOffset="+0700" ArrivalDateTime="2023-03-31T19:40:00" FLSArrivalTimeOffset="+0700" FlightNumber="636" JourneyDuration="PT1H20M" SequenceNumber="1" LegDistance="376" FLSMeals="" FLSInflightServices=" " FLSUUID="SGNDAD20230331VJ636">
+<DepartureAirport CodeContext="IATA" LocationCode="SGN" FLSLocationName="Tan Son Nhat International Airport" Terminal="1" FLSDayIndicator=""/>
+<ArrivalAirport CodeContext="IATA" LocationCode="DAD" FLSLocationName="Da Nang International Airport" Terminal=" " FLSDayIndicator=""/>
+<MarketingAirline Code="VJ" CodeContext="IATA" CompanyShortName="VietJet Air"/>
+<Equipment AirEquipType="321"/>
+</FlightLegDetails>
+</FlightDetails>
+<FlightDetails TotalFlightTime="PT1H30M" TotalMiles="376" TotalTripTime="PT1H30M" FLSDepartureDateTime="2023-03-31T19:10:00" FLSDepartureTimeOffset="+0700" FLSDepartureCode="SGN" FLSDepartureName="Tan Son Nhat International Airport" FLSArrivalDateTime="2023-03-31T20:40:00" FLSArrivalTimeOffset="+0700" FLSArrivalCode="DAD" FLSArrivalName="Da Nang International Airport" FLSFlightType="NonStop" FLSFlightLegs="1" FLSFlightDays="....5.." FLSDayIndicator="">
+<FlightLegDetails DepartureDateTime="2023-03-31T19:10:00" FLSDepartureTimeOffset="+0700" ArrivalDateTime="2023-03-31T20:40:00" FLSArrivalTimeOffset="+0700" FlightNumber="134" JourneyDuration="PT1H30M" SequenceNumber="1" LegDistance="376" FLSMeals="N" FLSInflightServices=" " FLSUUID="SGNDAD20230331VN134">
+<DepartureAirport CodeContext="IATA" LocationCode="SGN" FLSLocationName="Tan Son Nhat International Airport" Terminal="1" FLSDayIndicator=""/>
+<ArrivalAirport CodeContext="IATA" LocationCode="DAD" FLSLocationName="Da Nang International Airport" Terminal="1" FLSDayIndicator=""/>
+<MarketingAirline Code="VN" CodeContext="IATA" CompanyShortName="Vietnam Airlines"/>
+<Equipment AirEquipType="321"/>
+</FlightLegDetails>
+</FlightDetails>
+<FlightDetails TotalFlightTime="PT1H20M" TotalMiles="376" TotalTripTime="PT1H20M" FLSDepartureDateTime="2023-03-31T19:45:00" FLSDepartureTimeOffset="+0700" FLSDepartureCode="SGN" FLSDepartureName="Tan Son Nhat International Airport" FLSArrivalDateTime="2023-03-31T21:05:00" FLSArrivalTimeOffset="+0700" FLSArrivalCode="DAD" FLSArrivalName="Da Nang International Airport" FLSFlightType="NonStop" FLSFlightLegs="1" FLSFlightDays="....5.." FLSDayIndicator="">
+<FlightLegDetails DepartureDateTime="2023-03-31T19:45:00" FLSDepartureTimeOffset="+0700" ArrivalDateTime="2023-03-31T21:05:00" FLSArrivalTimeOffset="+0700" FlightNumber="638" JourneyDuration="PT1H20M" SequenceNumber="1" LegDistance="376" FLSMeals="" FLSInflightServices=" " FLSUUID="SGNDAD20230331VJ638">
+<DepartureAirport CodeContext="IATA" LocationCode="SGN" FLSLocationName="Tan Son Nhat International Airport" Terminal="1" FLSDayIndicator=""/>
+<ArrivalAirport CodeContext="IATA" LocationCode="DAD" FLSLocationName="Da Nang International Airport" Terminal=" " FLSDayIndicator=""/>
+<MarketingAirline Code="VJ" CodeContext="IATA" CompanyShortName="VietJet Air"/>
+<Equipment AirEquipType="321"/>
+</FlightLegDetails>
+</FlightDetails>
+<FlightDetails TotalFlightTime="PT1H30M" TotalMiles="376" TotalTripTime="PT1H30M" FLSDepartureDateTime="2023-03-31T19:50:00" FLSDepartureTimeOffset="+0700" FLSDepartureCode="SGN" FLSDepartureName="Tan Son Nhat International Airport" FLSArrivalDateTime="2023-03-31T21:20:00" FLSArrivalTimeOffset="+0700" FLSArrivalCode="DAD" FLSArrivalName="Da Nang International Airport" FLSFlightType="NonStop" FLSFlightLegs="1" FLSFlightDays="....5.." FLSDayIndicator="">
+<FlightLegDetails DepartureDateTime="2023-03-31T19:50:00" FLSDepartureTimeOffset="+0700" ArrivalDateTime="2023-03-31T21:20:00" FLSArrivalTimeOffset="+0700" FlightNumber="104" JourneyDuration="PT1H30M" SequenceNumber="1" LegDistance="376" FLSMeals="N" FLSInflightServices=" " FLSUUID="SGNDAD20230331VN104">
+<DepartureAirport CodeContext="IATA" LocationCode="SGN" FLSLocationName="Tan Son Nhat International Airport" Terminal="1" FLSDayIndicator=""/>
+<ArrivalAirport CodeContext="IATA" LocationCode="DAD" FLSLocationName="Da Nang International Airport" Terminal="1" FLSDayIndicator=""/>
+<MarketingAirline Code="VN" CodeContext="IATA" CompanyShortName="Vietnam Airlines"/>
+<Equipment AirEquipType="321"/>
+</FlightLegDetails>
+</FlightDetails>
+<FlightDetails TotalFlightTime="PT1H20M" TotalMiles="376" TotalTripTime="PT1H20M" FLSDepartureDateTime="2023-03-31T20:20:00" FLSDepartureTimeOffset="+0700" FLSDepartureCode="SGN" FLSDepartureName="Tan Son Nhat International Airport" FLSArrivalDateTime="2023-03-31T21:40:00" FLSArrivalTimeOffset="+0700" FLSArrivalCode="DAD" FLSArrivalName="Da Nang International Airport" FLSFlightType="NonStop" FLSFlightLegs="1" FLSFlightDays="....5.." FLSDayIndicator="">
+<FlightLegDetails DepartureDateTime="2023-03-31T20:20:00" FLSDepartureTimeOffset="+0700" ArrivalDateTime="2023-03-31T21:40:00" FLSArrivalTimeOffset="+0700" FlightNumber="170" JourneyDuration="PT1H20M" SequenceNumber="1" LegDistance="376" FLSMeals="" FLSInflightServices=" " FLSUUID="SGNDAD20230331QH170">
+<DepartureAirport CodeContext="IATA" LocationCode="SGN" FLSLocationName="Tan Son Nhat International Airport" Terminal="1" FLSDayIndicator=""/>
+<ArrivalAirport CodeContext="IATA" LocationCode="DAD" FLSLocationName="Da Nang International Airport" Terminal="1" FLSDayIndicator=""/>
+<MarketingAirline Code="QH" CodeContext="IATA" CompanyShortName="Bamboo Airways"/>
+<Equipment AirEquipType="E90"/>
+</FlightLegDetails>
+</FlightDetails>
+<FlightDetails TotalFlightTime="PT1H15M" TotalMiles="376" TotalTripTime="PT1H15M" FLSDepartureDateTime="2023-03-31T20:35:00" FLSDepartureTimeOffset="+0700" FLSDepartureCode="SGN" FLSDepartureName="Tan Son Nhat International Airport" FLSArrivalDateTime="2023-03-31T21:50:00" FLSArrivalTimeOffset="+0700" FLSArrivalCode="DAD" FLSArrivalName="Da Nang International Airport" FLSFlightType="NonStop" FLSFlightLegs="1" FLSFlightDays="....5.." FLSDayIndicator="">
+<FlightLegDetails DepartureDateTime="2023-03-31T20:35:00" FLSDepartureTimeOffset="+0700" ArrivalDateTime="2023-03-31T21:50:00" FLSArrivalTimeOffset="+0700" FlightNumber="640" JourneyDuration="PT1H15M" SequenceNumber="1" LegDistance="376" FLSMeals="" FLSInflightServices=" " FLSUUID="SGNDAD20230331VJ640">
+<DepartureAirport CodeContext="IATA" LocationCode="SGN" FLSLocationName="Tan Son Nhat International Airport" Terminal="1" FLSDayIndicator=""/>
+<ArrivalAirport CodeContext="IATA" LocationCode="DAD" FLSLocationName="Da Nang International Airport" Terminal=" " FLSDayIndicator=""/>
+<MarketingAirline Code="VJ" CodeContext="IATA" CompanyShortName="VietJet Air"/>
+<Equipment AirEquipType="321"/>
+</FlightLegDetails>
+</FlightDetails>
+<FlightDetails TotalFlightTime="PT1H30M" TotalMiles="376" TotalTripTime="PT1H30M" FLSDepartureDateTime="2023-03-31T20:40:00" FLSDepartureTimeOffset="+0700" FLSDepartureCode="SGN" FLSDepartureName="Tan Son Nhat International Airport" FLSArrivalDateTime="2023-03-31T22:10:00" FLSArrivalTimeOffset="+0700" FLSArrivalCode="DAD" FLSArrivalName="Da Nang International Airport" FLSFlightType="NonStop" FLSFlightLegs="1" FLSFlightDays="....5.." FLSDayIndicator="">
+<FlightLegDetails DepartureDateTime="2023-03-31T20:40:00" FLSDepartureTimeOffset="+0700" ArrivalDateTime="2023-03-31T22:10:00" FLSArrivalTimeOffset="+0700" FlightNumber="142" JourneyDuration="PT1H30M" SequenceNumber="1" LegDistance="376" FLSMeals="N" FLSInflightServices=" " FLSUUID="SGNDAD20230331VN142">
+<DepartureAirport CodeContext="IATA" LocationCode="SGN" FLSLocationName="Tan Son Nhat International Airport" Terminal="1" FLSDayIndicator=""/>
+<ArrivalAirport CodeContext="IATA" LocationCode="DAD" FLSLocationName="Da Nang International Airport" Terminal="1" FLSDayIndicator=""/>
+<MarketingAirline Code="VN" CodeContext="IATA" CompanyShortName="Vietnam Airlines"/>
+<Equipment AirEquipType="321"/>
+</FlightLegDetails>
+</FlightDetails>
+</OTA_AirDetailsRS>
