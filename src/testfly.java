@@ -10,6 +10,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.text.*;
 import java.util.*;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import org.json.JSONArray;
@@ -25,6 +26,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import javax.xml.xpath.*;
 import org.xml.sax.*;
+
 
 //...
 
@@ -164,8 +166,8 @@ public class testfly {
         // String xmlString = new String(Files.readAllBytes(Paths.get(filePath)));
         List<Flight> flights = new ArrayList<>();
         try {
-            /* 
-            URL url = new URL("https://timetable-lookup.p.rapidapi.com/TimeTable/SGN/HAN/20230412/");
+            
+            URL url = new URL("https://timetable-lookup.p.rapidapi.com/TimeTable/UIH/SGN/20230406/");
             // URL url = new URL(API_HOST + "/timetables/standard/" + urlParameters);
 
             // Set up connection and headers
@@ -187,18 +189,23 @@ public class testfly {
             asd.close();
             String response = responseBuilder.toString();
             System.out.println(response);
-            khuc nay dung api nen de do */
+            //khuc nay dung api nen de do 
 
 
 
 
-            //InputSource inputResponse = new InputSource(new StringReader(response));
-            File xmlFile = new File("src/test.xml");
-            
+            InputSource inputResponse = new InputSource(new StringReader(response));
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            //Document doc = dBuilder.parse(inputResponse);
-            Document doc = dBuilder.parse(xmlFile);
+            Document doc = dBuilder.parse(inputResponse);
+            
+            
+//            File xmlFile = new File("src/test.xml");            
+//            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+//            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+//            Document doc = dBuilder.parse(xmlFile);
+            
+            
             XPathFactory xPathfactory = XPathFactory.newInstance();
             XPath xpath = xPathfactory.newXPath();
             NodeList flightNodes = (NodeList) xpath.evaluate("//FlightDetails", doc, XPathConstants.NODESET);
@@ -233,7 +240,31 @@ public class testfly {
                 System.out.println("Available Seats: " + flight.availableSeats);
                 System.out.println("Price: " + flight.price);
                 System.out.println("--------------------------");
-            }
+
+
+                    // // Connect to database
+    Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+
+    // // Set up date format and calendar
+    DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+
+    PreparedStatement ps = conn.prepareStatement(
+        "INSERT INTO public.flights (flight_id, airline, departure, arrival, departure_date,arrival_date, available_seats, price) " +
+        "VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        ps.setString(1, flight.flightId);
+        ps.setString(2, flight.airline);
+        ps.setString(3, flight.departure);
+        ps.setString(4, flight.arrival);
+        Date date = formatDate(departureDateStr);
+        Timestamp timestamp = new Timestamp(date.getTime());
+        ps.setTimestamp(5, timestamp);
+        Date date1 = formatDate(arrivalDateStr);
+        Timestamp timestamp1 = new Timestamp(date1.getTime());
+        ps.setTimestamp(6, timestamp1);
+        ps.setInt(7, 80);
+        ps.setInt(8, 80000000);
+        ps.executeUpdate();
+    }
             // for (Flight flight : flights) {
 
             // }
@@ -244,11 +275,7 @@ public class testfly {
         // Do whatever you need to do with the extracted information
     }
     // try {
-    // // Connect to database
-    // Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
 
-    // // Set up date format and calendar
-    // DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     // Calendar calendar = Calendar.getInstance();
     // calendar.setTime(new Date());
 
@@ -296,19 +323,6 @@ public class testfly {
     // BigDecimal.ROUND_HALF_UP);
 
     // // Insert flight information into database
-    // PreparedStatement ps = conn.prepareStatement(
-    // "INSERT INTO Flights (flight_id, airline, departure, arrival, departure_date,
-    // arrival_date, available_seats, price) " +
-    // "VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-    // ps.setString(1, flightId);
-    // ps.setString(2, airline);
-    // ps.setString(3, departure);
-    // ps.setString(4, arrival);
-    // ps.setString(5, departureDate);
-    // ps.setString(6, arrivalDate);
-    // ps.setInt(7, availableSeats);
-    // ps.setBigDecimal(8, price);
-    // ps.executeUpdate();
 
     // System.out.println("Inserted flight " + flightId + " from " + departure + "
     // to " + arrival + " on " + departureDate);
