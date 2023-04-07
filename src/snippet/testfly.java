@@ -1,3 +1,5 @@
+package snippet;
+
 import java.io.*;
 import java.math.BigDecimal;
 import java.net.*;
