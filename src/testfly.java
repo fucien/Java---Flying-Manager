@@ -13,13 +13,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 
-import org.apache.hc.core5.http;
-import org.apache.http.client.utils.URIBuilder;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.HttpResponse;
-import org.apache.http.util.EntityUtils;
+
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;

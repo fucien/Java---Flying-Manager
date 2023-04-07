@@ -283,13 +283,14 @@ public class Passengers extends javax.swing.JFrame {
     ResultSet Rs = null, Rs1 = null;
     Statement St = null, St1 = null;
     
-    private void DisplayPassengers()
+    private String[] DisplayPassengers()
     {
         try {
             Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/flight","root","1234");
             St = Con.createStatement();
             Rs = St.executeQuery("SELECT * FROM PassengersTbl");
             PassengersTable.setModel(DbUtils.resultSetToTableModel(Rs));
+            new String[] airports(20) = Rs.getString(String Airport_code);
         } catch (Exception e) {
         }
     }

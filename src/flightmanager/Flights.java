@@ -279,7 +279,7 @@ public class Flights extends javax.swing.JFrame {
     private void DisplayFlight()
     {
         try {
-            Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/flight","root","1234");
+            Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest","ien","7302");
             St = Con.createStatement();
             Rs = St.executeQuery("SELECT * FROM FlightsTbl");
             FlightsTable.setModel(DbUtils.resultSetToTableModel(Rs));
