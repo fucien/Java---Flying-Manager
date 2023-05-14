@@ -143,13 +143,10 @@ public class Flights extends javax.swing.JFrame {
 
         FlightsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Fly ID", "Airline", "Departure", "Destination", "Departure Time", "Arrival Time", "Available seats", "Price"
             }
         ));
         FlightsTable.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -307,7 +304,7 @@ public class Flights extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Missing Information");
         } else{
             try{
-                Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/flight","root","1234");
+                Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest","ien","7302");
                 PreparedStatement Add = Con.prepareStatement("INSERT INTO FlightsTbl VALUES(?,?,?,?,?)");
                 Add.setString(1, FCodeTb.getText());
                 Add.setString(2, FSourceCb.getSelectedItem().toString());
@@ -334,7 +331,7 @@ public class Flights extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Select a flight");
         } else{
             try {
-                Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/flight","root","1234");
+                Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest","ien","7302");
                 String Query = "DELETE FROM FlightsTbl WHERE FlCode='" + Key + "'";
                 Statement Del = Con.createStatement();
                 Del.executeUpdate(Query);
@@ -370,7 +367,7 @@ public class Flights extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Select a flight");
         } else{
             try{
-                Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/flight","root","1234");
+                Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest","ien","7302");
                 String Query = "UPDATE FlightsTbl SET FlSource=?,FlDest=?,FlDate=?,FlSeats=? WHERE FlCode=?";
                 PreparedStatement Add = Con.prepareStatement(Query);
                 Add.setString(5, Key);

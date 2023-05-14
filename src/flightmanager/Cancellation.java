@@ -230,7 +230,7 @@ public class Cancellation extends javax.swing.JFrame {
     private void GetTicket()
     {
         try {
-            Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/flight","root","1234");
+            Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest","ien","7302");
             St = Con.createStatement();
             String Query = "SELECT * FROM BookingTbl";
             Rs = St.executeQuery(Query);
@@ -249,7 +249,7 @@ public class Cancellation extends javax.swing.JFrame {
         Statement St;
         ResultSet Rs;
         try {
-            Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/flight","root","1234");
+            Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest","ien","7302");
             St = Con.createStatement();
             Rs = St.executeQuery(Query);
             if (Rs.next())
@@ -263,7 +263,7 @@ public class Cancellation extends javax.swing.JFrame {
     private void DisplayCanc()
     {
         try {
-            Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/flight","root","1234");
+            Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest","ien","7302");
             St = Con.createStatement();
             Rs = St.executeQuery("SELECT * FROM CancellationTbl");
             CancellationTable.setModel(DbUtils.resultSetToTableModel(Rs));
@@ -294,7 +294,7 @@ public class Cancellation extends javax.swing.JFrame {
         } else{
             try{
                 CountCanc();
-                Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/flight","root","1234");
+                Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest","ien","7302");
                 PreparedStatement Add = Con.prepareStatement("INSERT INTO CancellationTbl VALUES(?,?,?,?)");
                 Add.setInt(1, CId);
                 Add.setInt(2, Integer.valueOf(TIdCb.getSelectedItem().toString()));
@@ -332,7 +332,7 @@ public class Cancellation extends javax.swing.JFrame {
     private void Cancel()
     {
         try {
-                Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/flight","root","1234");
+                Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest","ien","7302");
                 String Query = "DELETE FROM BoongkingTbl WHERE TiketId=" + TIdCb.getSelectedItem();
                 Statement Del = Con.createStatement();
                 Del.executeUpdate(Query);

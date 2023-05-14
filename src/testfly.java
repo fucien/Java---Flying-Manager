@@ -80,7 +80,7 @@ public class testfly {
   }
 
     public static void main(String[] args) throws URISyntaxException, IOException, SQLException {
-        FlightsApi flightsApi = new FlightsApi();
-        flightsApi.importFlights("SGN", "UIH", "2023-26-03");
+        //FlightsApi flightsApi = new FlightsApi();
+        //flightsApi.importFlights("SGN", "UIH", "2023-26-03");
     }
 }

@@ -8,6 +8,7 @@ import java.sql.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
+
 /**
  *
  * @author Admin
@@ -39,9 +40,8 @@ public class Passengers extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         NatCb = new javax.swing.JComboBox<>();
-        GenCb = new javax.swing.JComboBox<>();
-        PNameTb = new javax.swing.JTextField();
-        PAddressTb = new javax.swing.JTextField();
+        PName = new javax.swing.JTextField();
+        PhoneNum = new javax.swing.JTextField();
         SaveBtn = new javax.swing.JButton();
         EditBtn = new javax.swing.JButton();
         DeleteBtn = new javax.swing.JButton();
@@ -49,9 +49,10 @@ public class Passengers extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         PassengersTable = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
-        PassNumTb = new javax.swing.JTextField();
+        Password = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        PPhoneTb = new javax.swing.JTextField();
+        Passport = new javax.swing.JTextField();
+        Status = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -75,25 +76,22 @@ public class Passengers extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Gender");
+        jLabel4.setText("Passport");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Passport number");
+        jLabel5.setText("Password");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Address");
+        jLabel6.setText("Phone number");
 
         NatCb.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        NatCb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        NatCb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vietnamese", "French", "Australians" }));
 
-        GenCb.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        GenCb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        PName.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
 
-        PNameTb.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-
-        PAddressTb.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        PhoneNum.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
 
         SaveBtn.setBackground(new java.awt.Color(255, 62, 62));
         SaveBtn.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -157,55 +155,53 @@ public class Passengers extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("List");
 
-        PassNumTb.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Password.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel8.setText("Phone number");
+        jLabel8.setText("Admin status");
 
-        PPhoneTb.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Passport.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+
+        Status.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel3)
-                        .addGap(245, 245, 245))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(9, 9, 9)
-                                .addComponent(PNameTb, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(12, 12, 12))
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(14, 14, 14)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(NatCb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
+                        .addComponent(jLabel4)
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(Passport, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(GenCb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(PassNumTb, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(28, 28, 28)
-                                .addComponent(PAddressTb, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addComponent(jLabel4)
-                                .addGap(28, 28, 28)
-                                .addComponent(jLabel5)
-                                .addGap(43, 43, 43)
-                                .addComponent(jLabel6)))
+                        .addComponent(PName, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(32, 32, 32)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
+                    .addComponent(NatCb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(PPhoneTb, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())))
+                        .addComponent(jLabel6))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(PhoneNum, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(Status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(17, 17, 17))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -225,6 +221,10 @@ public class Passengers extends javax.swing.JFrame {
                 .addGap(116, 116, 116)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 603, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(245, 245, 245))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -234,21 +234,21 @@ public class Passengers extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1)
-                        .addComponent(jLabel2)
-                        .addComponent(jLabel8))
+                        .addComponent(jLabel8)
+                        .addComponent(jLabel6))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel5)
-                        .addComponent(jLabel4)
-                        .addComponent(jLabel6)))
+                        .addComponent(jLabel2)
+                        .addComponent(jLabel1)
+                        .addComponent(jLabel4)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(NatCb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PNameTb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(GenCb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PassNumTb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PAddressTb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PPhoneTb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(PName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PhoneNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Passport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SaveBtn)
@@ -259,14 +259,14 @@ public class Passengers extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 882, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -282,15 +282,16 @@ public class Passengers extends javax.swing.JFrame {
     Connection Con = null;
     ResultSet Rs = null, Rs1 = null;
     Statement St = null, St1 = null;
-    
-    private String[] DisplayPassengers()
+    int Key = -1;
+    private void DisplayPassengers()
     {
         try {
-            Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/flight","root","1234");
-            St = Con.createStatement();
-            Rs = St.executeQuery("SELECT * FROM PassengersTbl");
+            Connection Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest", "ien", "7302");
+            Statement St = Con.createStatement();
+            String Query = "SELECT * FROM users";
+            ResultSet Rs = St.executeQuery(Query);
             PassengersTable.setModel(DbUtils.resultSetToTableModel(Rs));
-            new String[] airports(20) = Rs.getString(String Airport_code);
+//            new String[] airports(20) = Rs.getString(String Airport_code);
         } catch (Exception e) {
         }
     }
@@ -300,7 +301,7 @@ public class Passengers extends javax.swing.JFrame {
     {
          try {
             St1 = Con.createStatement();
-            Rs1 = St1.executeQuery("SELECT Max(PID) FROM PassengersTbl");
+            Rs1 = St1.executeQuery("SELECT COUNT(*) FROM users");
             Rs1.next();
             PassId = Rs1.getInt(1) + 1;
         } catch (Exception e) {
@@ -309,30 +310,34 @@ public class Passengers extends javax.swing.JFrame {
     
     private void Clear()
     {
-        PNameTb.setText("");
-        NatCb.setSelectedIndex(-1);
-        GenCb.setSelectedIndex(-1);
-        PassNumTb.setText("");
-        PAddressTb.setText("");
-        PPhoneTb.setText("");
+        PName.setText("");
+        NatCb.setSelectedIndex(0);
+        Passport.setText("");
+        Password.setText("");
+        PhoneNum.setText("");
+        Status.setSelectedIndex(0);
     }
     
     private void SaveBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SaveBtnMouseClicked
-        if (PNameTb.getText().isEmpty() || PassNumTb.getText().isEmpty() || PAddressTb.getText().isEmpty() || PPhoneTb.getText().isEmpty())
+        if (PName.getText().isEmpty() || Password.getText().isEmpty() || PhoneNum.getText().isEmpty() || Passport.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(this, "Missing Information");
         } else{
             try{
                 CountPassengers();
-                Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/flight","root","1234");
-                PreparedStatement Add = Con.prepareStatement("INSERT INTO PassengersTbl VALUES(?,?,?,?,?,?,?)");
+                Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest", "ien", "7302");
+                PreparedStatement Add = Con.prepareStatement("INSERT INTO users VALUES(?,?,?,?,?,?,?)");
                 Add.setInt(1, PassId);
-                Add.setString(2, PNameTb.getText());
+                Add.setString(2, PName.getText());
                 Add.setString(3, NatCb.getSelectedItem().toString());
-                Add.setString(4, GenCb.getSelectedItem().toString());
-                Add.setString(5, PassNumTb.getText());
-                Add.setString(6, PAddressTb.getText());
-                Add.setString(7, PPhoneTb.getText());
+                Add.setString(4, Passport.getText());
+                Add.setString(5, Password.getText());
+                Add.setString(6, PhoneNum.getText());
+                Add.setInt(7, Status.getSelectedIndex());
+
+                
+                
+
                 int row = Add.executeUpdate();
                 JOptionPane.showMessageDialog(this, "Passenger Added");
                 Con.close();
@@ -345,16 +350,16 @@ public class Passengers extends javax.swing.JFrame {
     }//GEN-LAST:event_SaveBtnMouseClicked
 
     private void DeleteBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeleteBtnMouseClicked
-        if (Key == 0)
+        if (Key == -1)
         {
             JOptionPane.showMessageDialog(this, "Select a passenger");
         } else{
             try {
-                Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/flight","root","1234");
-                String Query = "DELETE FROM PassengersTbl WHERE PId=" + Key;
-                Statement Del = Con.createStatement();
-                Del.executeUpdate(Query);
-                JOptionPane.showMessageDialog(this, "Passenger deleted");
+                Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest", "ien", "7302");
+                String Id = String.valueOf(Key);
+                String Query = "DELETE FROM users WHERE user_id = " + Id;
+                Statement Add = Con.createStatement();
+                Add.executeUpdate(Query);
                 DisplayPassengers();
                 Clear();
             } catch (Exception e) {
@@ -363,17 +368,18 @@ public class Passengers extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_DeleteBtnMouseClicked
 
-    int Key = 0;
+
     private void PassengersTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PassengersTableMouseClicked
         DefaultTableModel model = (DefaultTableModel)PassengersTable.getModel();
         int MyIndex = PassengersTable.getSelectedRow();
-        Key = Integer.valueOf(model.getValueAt(MyIndex, 0).toString());
-        PNameTb.setText(model.getValueAt(MyIndex, 1).toString());
+        Key = Integer.parseInt(model.getValueAt(MyIndex, 0).toString());
+        PName.setText(model.getValueAt(MyIndex, 1).toString());
         NatCb.setSelectedItem(model.getValueAt(MyIndex, 2).toString());
-        GenCb.setSelectedItem(model.getValueAt(MyIndex, 3).toString());
-        PassNumTb.setText(model.getValueAt(MyIndex, 4).toString());
-        PAddressTb.setText(model.getValueAt(MyIndex, 5).toString());
-        PPhoneTb.setText(model.getValueAt(MyIndex, 6).toString());
+        Passport.setText(model.getValueAt(MyIndex, 3).toString());
+        Password.setText(model.getValueAt(MyIndex, 4).toString());
+        PhoneNum.setText(model.getValueAt(MyIndex, 5).toString());
+        Status.setSelectedItem(model.getValueAt(MyIndex, 6).toString());
+
     }//GEN-LAST:event_PassengersTableMouseClicked
 
     private void BackBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackBtnMouseClicked
@@ -387,16 +393,16 @@ public class Passengers extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Select a passenger");
         } else{
             try{
-                Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/flight","root","1234");
-                String Query = "UPDATE PassengersTbl SET PName=?,PNat=?,PGen=?,PPass=?,PAdd=?,PPhone=? WHERE PId=?";
+                Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest", "ien", "7302");
+                String Query = "UPDATE users SET name=?,nationality=?,passport=?,password=?,phone_number=?,isAdmin=? WHERE user_id=?";
                 PreparedStatement Add = Con.prepareStatement(Query);
-                Add.setInt(7, Key);
-                Add.setString(1, PNameTb.getText());
+                Add.setString(1, PName.getText());
                 Add.setString(2, NatCb.getSelectedItem().toString());
-                Add.setString(3, GenCb.getSelectedItem().toString());
-                Add.setString(4, PassNumTb.getText());
-                Add.setString(5, PAddressTb.getText());
-                Add.setString(6, PPhoneTb.getText());
+                Add.setString(3, Passport.getText());
+                Add.setString(4, Password.getText());
+                Add.setString(5, PhoneNum.getText());
+                Add.setInt(6, Status.getSelectedIndex());
+                Add.setInt(7, Key);
                 int row = Add.executeUpdate();
                 JOptionPane.showMessageDialog(this, "Passenger updated");
                 Con.close();
@@ -447,14 +453,14 @@ public class Passengers extends javax.swing.JFrame {
     private javax.swing.JButton BackBtn;
     private javax.swing.JButton DeleteBtn;
     private javax.swing.JButton EditBtn;
-    private javax.swing.JComboBox<String> GenCb;
     private javax.swing.JComboBox<String> NatCb;
-    private javax.swing.JTextField PAddressTb;
-    private javax.swing.JTextField PNameTb;
-    private javax.swing.JTextField PPhoneTb;
-    private javax.swing.JTextField PassNumTb;
+    private javax.swing.JTextField PName;
     private javax.swing.JTable PassengersTable;
+    private javax.swing.JTextField Passport;
+    private javax.swing.JTextField Password;
+    private javax.swing.JTextField PhoneNum;
     private javax.swing.JButton SaveBtn;
+    private javax.swing.JComboBox<String> Status;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
