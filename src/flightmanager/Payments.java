@@ -45,7 +45,7 @@ import net.proteanit.sql.DbUtils;
  * @author trantri
  */
 
-public class BookingList extends javax.swing.JFrame {
+public class Payments extends javax.swing.JFrame {
     public static class Flight {
         private String flightId;
         private String airline;
@@ -166,7 +166,7 @@ public class BookingList extends javax.swing.JFrame {
     /**
      * Creates new form BookingList
      */
-    public BookingList() throws IOException {
+    public Payments() throws IOException {
         initComponents();
         List<Flight> flights = new ArrayList<>();
         try {
@@ -287,7 +287,7 @@ public class BookingList extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         BookingListTbl = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
-        BookBtn = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(800, 300));
@@ -323,17 +323,12 @@ public class BookingList extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(BookingListTbl);
 
-        jLabel9.setText("Booking List");
+        jLabel9.setText("Payments List");
 
-        BookBtn.setText("Book");
-        BookBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BookBtnMouseClicked(evt);
-            }
-        });
-        BookBtn.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("Back");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BookBtnActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -342,40 +337,40 @@ public class BookingList extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(109, 109, 109)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(356, 356, 356)
+                        .addComponent(jButton1)
+                        .addGap(169, 169, 169)
                         .addComponent(jLabel9))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(109, 109, 109)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel4)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel5)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel6)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel7)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel8)))
-                        .addGap(18, 18, 18)
-                        .addComponent(BookBtn)))
-                .addContainerGap(31, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jScrollPane1)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addGap(18, 18, 18)
+                            .addComponent(jLabel2)
+                            .addGap(18, 18, 18)
+                            .addComponent(jLabel3)
+                            .addGap(18, 18, 18)
+                            .addComponent(jLabel4)
+                            .addGap(18, 18, 18)
+                            .addComponent(jLabel5)
+                            .addGap(18, 18, 18)
+                            .addComponent(jLabel6)
+                            .addGap(18, 18, 18)
+                            .addComponent(jLabel7)
+                            .addGap(18, 18, 18)
+                            .addComponent(jLabel8))))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addComponent(jLabel9)
-                .addGap(43, 43, 43)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9)
+                    .addComponent(jButton1))
+                .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2)
@@ -386,9 +381,7 @@ public class BookingList extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(jLabel8))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BookBtn))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
@@ -406,26 +399,19 @@ public class BookingList extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        new Main().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     private static int Key = 0;
 
     public static int getKey() {
         return Key;
     }
 
-    private void BookingListTblMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_BookingListTblMouseClicked
-        int row = BookingListTbl.getSelectedRow();
-        Key = Integer.parseInt(BookingListTbl.getValueAt(row, 0).toString());
-    }// GEN-LAST:event_BookingListTblMouseClicked
-
-    private void BookBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_BookBtnActionPerformed
-
-    }// GEN-LAST:event_BookBtnActionPerformed
-
-    private void BookBtnMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_BookBtnMouseClicked
-        Payment pay = new Payment();
-        pay.setVisible(true);
-        this.dispose();
-    }// GEN-LAST:event_BookBtnMouseClicked
+   
 
     /**
      * @param args the command line arguments
@@ -449,18 +435,19 @@ public class BookingList extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BookingList.class.getName()).log(java.util.logging.Level.SEVERE, null,
+            java.util.logging.Logger.getLogger(Payments.class.getName()).log(java.util.logging.Level.SEVERE, null,
                     ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BookingList.class.getName()).log(java.util.logging.Level.SEVERE, null,
+            java.util.logging.Logger.getLogger(Payments.class.getName()).log(java.util.logging.Level.SEVERE, null,
                     ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BookingList.class.getName()).log(java.util.logging.Level.SEVERE, null,
+            java.util.logging.Logger.getLogger(Payments.class.getName()).log(java.util.logging.Level.SEVERE, null,
                     ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BookingList.class.getName()).log(java.util.logging.Level.SEVERE, null,
+            java.util.logging.Logger.getLogger(Payments.class.getName()).log(java.util.logging.Level.SEVERE, null,
                     ex);
         }
+        // </editor-fold>
         // </editor-fold>
 
         /* Create and display the form */
@@ -468,17 +455,17 @@ public class BookingList extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new BookingList().setVisible(true);
+                    new Payments().setVisible(true);
                 } catch (IOException ex) {
-                    Logger.getLogger(BookingList.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(Payments.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BookBtn;
     private javax.swing.JTable BookingListTbl;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
