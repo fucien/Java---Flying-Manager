@@ -422,8 +422,8 @@ public class BookingList extends javax.swing.JFrame {
     }// GEN-LAST:event_BookBtnActionPerformed
 
     private void BookBtnMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_BookBtnMouseClicked
-        Payment pay = new Payment();
-        pay.setVisible(true);
+//        Payment pay = new Payment();
+//        pay.setVisible(true);
         this.dispose();
     }// GEN-LAST:event_BookBtnMouseClicked
 

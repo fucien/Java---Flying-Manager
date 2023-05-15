@@ -278,7 +278,7 @@ public class Flights extends javax.swing.JFrame {
         try {
             Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest","ien","7302");
             St = Con.createStatement();
-            Rs = St.executeQuery("SELECT * FROM FlightsTbl");
+            Rs = St.executeQuery("SELECT * FROM flights");
             FlightsTable.setModel(DbUtils.resultSetToTableModel(Rs));
         } catch (Exception e) {
         }
@@ -305,7 +305,7 @@ public class Flights extends javax.swing.JFrame {
         } else{
             try{
                 Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest","ien","7302");
-                PreparedStatement Add = Con.prepareStatement("INSERT INTO FlightsTbl VALUES(?,?,?,?,?)");
+                PreparedStatement Add = Con.prepareStatement("INSERT INTO flights VALUES(?,?,?,?,?)");
                 Add.setString(1, FCodeTb.getText());
                 Add.setString(2, FSourceCb.getSelectedItem().toString());
                 Add.setString(3, FDestCb.getSelectedItem().toString());
@@ -332,7 +332,7 @@ public class Flights extends javax.swing.JFrame {
         } else{
             try {
                 Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest","ien","7302");
-                String Query = "DELETE FROM FlightsTbl WHERE FlCode='" + Key + "'";
+                String Query = "DELETE FROM flights WHERE FlCode='" + Key + "'";
                 Statement Del = Con.createStatement();
                 Del.executeUpdate(Query);
                 JOptionPane.showMessageDialog(this, "Flight deleted");
@@ -368,7 +368,7 @@ public class Flights extends javax.swing.JFrame {
         } else{
             try{
                 Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest","ien","7302");
-                String Query = "UPDATE FlightsTbl SET FlSource=?,FlDest=?,FlDate=?,FlSeats=? WHERE FlCode=?";
+                String Query = "UPDATE flights SET FlSource=?,FlDest=?,FlDate=?,FlSeats=? WHERE FlCode=?";
                 PreparedStatement Add = Con.prepareStatement(Query);
                 Add.setString(5, Key);
                 Add.setString(1, FSourceCb.getSelectedItem().toString());
