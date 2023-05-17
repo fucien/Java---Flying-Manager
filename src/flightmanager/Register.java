@@ -70,16 +70,21 @@ public class Register extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel2.setBackground(new java.awt.Color(27, 46, 83));
+
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-user-30.png")));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 62, 62));
-        jLabel3.setText("Airline");
+        jLabel3.setText("TTTU Airline");
 
+        jLabel5.setForeground(new java.awt.Color(255, 62, 62));
         jLabel5.setText("Username");
 
+        jLabel6.setForeground(new java.awt.Color(255, 62, 62));
         jLabel6.setText("Password");
 
+        jLabel7.setForeground(new java.awt.Color(255, 62, 62));
         jLabel7.setText("Confirm Password");
 
         RegisterBtn.setBackground(new java.awt.Color(255, 62, 62));
@@ -107,12 +112,16 @@ public class Register extends javax.swing.JFrame {
             }
         });
 
+        jLabel8.setForeground(new java.awt.Color(255, 62, 62));
         jLabel8.setText("Name");
 
+        jLabel9.setForeground(new java.awt.Color(255, 62, 62));
         jLabel9.setText("Nationality");
 
+        jLabel10.setForeground(new java.awt.Color(255, 62, 62));
         jLabel10.setText("Passport ID");
 
+        jLabel11.setForeground(new java.awt.Color(255, 62, 62));
         jLabel11.setText("Phone number");
 
         RegisterBtn2.setBackground(new java.awt.Color(255, 62, 62));
