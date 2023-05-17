@@ -28,7 +28,7 @@ public class History extends javax.swing.JFrame {
     private void DisplayFlight() {
         try {
             ABlbl.setText(String.valueOf(###########));
-            Con = DriverManager.getConnection("jdbc:derby://localhost:1527/FlightManagerDB", "fm", "fm");
+            Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest", "ien", "7302");
             St = Con.createStatement();
             Rs = St.executeQuery("SELECT * FROM FM.FLIGHTS");
             HistoryTbl.setModel(DbUtils.resultSetToTableModel(Rs));

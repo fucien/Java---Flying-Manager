@@ -31,7 +31,7 @@ public class Pay extends javax.swing.JFrame {
 
     private void DisplayFlight() {
         try {
-            Con = DriverManager.getConnection("jdbc:derby://localhost:1527/FlightManagerDB", "fm", "fm");
+            Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest", "ien", "7302");
             St = Con.createStatement();
             Rs = St.executeQuery("SELECT * FROM FM.FLIGHTS");
             String isBooked = Rs.getString("ISBOOKED");
@@ -41,7 +41,7 @@ public class Pay extends javax.swing.JFrame {
             else {
                 PaymentHistoryTbl.setModel(DbUtils.resultSetToTableModel(Rs));
             }
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -227,10 +227,6 @@ public class Pay extends javax.swing.JFrame {
     }
 
     
-    Connection Con = null;
-    ResultSet Rs = null, Rs1 = null;
-    Statement St = null, St1 = null;
-    int Key = -1;
     private void DisplayTicket()
     {
         try {
@@ -238,7 +234,7 @@ public class Pay extends javax.swing.JFrame {
             Statement St = Con.createStatement();
             String Query = "SELECT * FROM tickets";
             ResultSet Rs = St.executeQuery(Query);
-            jTable1.setModel(DbUtils.resultSetToTableModel(Rs));
+            TicketsTbl.setModel(DbUtils.resultSetToTableModel(Rs));
         } catch (Exception e) {
         }
     }

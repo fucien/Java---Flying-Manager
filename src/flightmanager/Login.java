@@ -229,7 +229,7 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Missing Information");
         } else {
             try {
-                Con = DriverManager.getConnection("jdbc:derby://localhost:1527/FlightManagement", "User1", "1234");
+                Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest", "ien", "7302");
                 St = Con.createStatement();
                 Rs = St.executeQuery("Select * from User1.LOGIN where USERNAME='" + UsernameTb.getText() + "' and PASSWORD='" + PasswordTb.getText() + "'");
                 String isAdmin = Rs.getString("ISADMIN");
