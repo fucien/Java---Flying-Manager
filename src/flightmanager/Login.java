@@ -6,19 +6,31 @@ package flightmanager;
 
 import javax.swing.JOptionPane;
 import javax.swing.plaf.nimbus.NimbusStyle;
+import java.sql.*;
 
 /**
  *
  * @author Admin
  */
 public class Login extends javax.swing.JFrame {
-
     /**
      * Creates new form Login
      */
+
+    private String username;
+    private String password;
+
+    public String getUsername() {
+        return username;
+    }
+
     public Login() {
         initComponents();
     }
+
+    Connection Con = null;
+    ResultSet Rs = null, Rs1 = null;
+    Statement St = null, St1 = null;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -212,17 +224,36 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void LoginBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginBtnMouseClicked
-        if (UsernameTb.getText().isEmpty() || PasswordTb.getText().isEmpty())
-        {
-            JOptionPane.showMessageDialog(this, "Enter username and password");
-        }else if (UsernameTb.getText().equals("Admin") && PasswordTb.getText().equals("1234"))
-        {
-            new Main().setVisible(true);
-            this.dispose();
-        }else{
-            JOptionPane.showMessageDialog(this, "Wrong username or password!");
-            UsernameTb.setText(null);
-            PasswordTb.setText(null);
+        // TODO add your handling code here:
+        if (UsernameTb.getText().isEmpty() || PasswordTb.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Missing Information");
+        } else {
+            try {
+                Con = DriverManager.getConnection("jdbc:derby://localhost:1527/FlightManagement", "User1", "1234");
+                St = Con.createStatement();
+                Rs = St.executeQuery("Select * from User1.LOGIN where USERNAME='" + UsernameTb.getText() + "' and PASSWORD='" + PasswordTb.getText() + "'");
+                String isAdmin = Rs.getString("ISADMIN");
+                if (Rs.next()) {
+                    if (isAdmin.equals("Y")) {
+                        new Main().setVisible(true);
+                        new Main().pack();
+                        new Main().setLocationRelativeTo(null);
+                        new Main().setDefaultCloseOperation(Login.EXIT_ON_CLOSE);
+                    } else {
+                        new User().setVisible(true);
+                        new User().pack();
+                        new User().setLocationRelativeTo(null);
+                        new User().setDefaultCloseOperation(Login.EXIT_ON_CLOSE);
+                    }
+                    this.dispose();
+                } else {
+                    // clear
+                    PasswordTb.setText("");
+                    JOptionPane.showMessageDialog(this, "Wrong Username or Password");
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }//GEN-LAST:event_LoginBtnMouseClicked
 
