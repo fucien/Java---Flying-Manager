@@ -292,20 +292,31 @@ public class BookingList extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(800, 300));
 
+        jPanel1.setBackground(new java.awt.Color(27, 46, 83));
+
+        jLabel1.setBackground(new java.awt.Color(255, 62, 62));
+        jLabel1.setForeground(new java.awt.Color(255, 62, 62));
         jLabel1.setText("ID");
 
+        jLabel2.setForeground(new java.awt.Color(255, 62, 62));
         jLabel2.setText("Airlines");
 
+        jLabel3.setForeground(new java.awt.Color(255, 62, 62));
         jLabel3.setText("Start");
 
+        jLabel4.setForeground(new java.awt.Color(255, 62, 62));
         jLabel4.setText("Arrive");
 
+        jLabel5.setForeground(new java.awt.Color(255, 62, 62));
         jLabel5.setText("Boarding date and time");
 
+        jLabel6.setForeground(new java.awt.Color(255, 62, 62));
         jLabel6.setText("Landing date and time");
 
+        jLabel7.setForeground(new java.awt.Color(255, 62, 62));
         jLabel7.setText("Seats");
 
+        jLabel8.setForeground(new java.awt.Color(255, 62, 62));
         jLabel8.setText("Price");
 
         BookingListTbl.setModel(new javax.swing.table.DefaultTableModel(
@@ -323,8 +334,12 @@ public class BookingList extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(BookingListTbl);
 
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 62, 62));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Booking List");
 
+        BookBtn.setBackground(new java.awt.Color(255, 62, 62));
         BookBtn.setText("Book");
         BookBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -389,7 +404,7 @@ public class BookingList extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BookBtn))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
