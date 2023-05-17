@@ -4,6 +4,9 @@
  */
 package flightmanager;
 
+import java.sql.*;
+import net.proteanit.sql.DbUtils;
+
 /**
  *
  * @author Admin
@@ -16,6 +19,28 @@ public class Pay extends javax.swing.JFrame {
     public Pay() {
         initComponents();
         ABlbl.setText(String.valueOf(11111)); // get balance from account class
+        DisplayFlight();
+    }
+    
+    Connection Con = null;
+    Statement St = null;
+    ResultSet Rs = null;
+
+    private void DisplayFlight() {
+        try {
+            Con = DriverManager.getConnection("jdbc:derby://localhost:1527/FlightManagerDB", "fm", "fm");
+            St = Con.createStatement();
+            Rs = St.executeQuery("SELECT * FROM FM.FLIGHTS");
+            String isBooked = Rs.getString("ISBOOKED");
+            if (isBooked.equals("false")) {
+                TicketsTbl.setModel(DbUtils.resultSetToTableModel(Rs));
+            }
+            else {
+                PaymentHistoryTbl.setModel(DbUtils.resultSetToTableModel(Rs));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -30,8 +55,8 @@ public class Pay extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        TicketsTbl = new javax.swing.JTable();
+        PayBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         ABlbl = new javax.swing.JLabel();
         PaymentsCbx = new javax.swing.JComboBox<>();
@@ -39,11 +64,11 @@ public class Pay extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        PaymentHistoryTbl = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TicketsTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -54,9 +79,14 @@ public class Pay extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(TicketsTbl);
 
-        jButton1.setText("Pay");
+        PayBtn.setText("Pay");
+        PayBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PayBtnMouseClicked(evt);
+            }
+        });
 
         jLabel1.setText("Account Balance");
 
@@ -77,7 +107,7 @@ public class Pay extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PayBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(PaymentsCbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())
@@ -102,7 +132,7 @@ public class Pay extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PaymentsCbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(PayBtn)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 15, Short.MAX_VALUE)
@@ -113,7 +143,7 @@ public class Pay extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Thanh toán hóa đơn", jPanel1);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        PaymentHistoryTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -124,7 +154,7 @@ public class Pay extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(PaymentHistoryTbl);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -152,6 +182,11 @@ public class Pay extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void PayBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PayBtnMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_PayBtnMouseClicked
 
     /**
      * @param args the command line arguments
@@ -190,8 +225,10 @@ public class Pay extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ABlbl;
+    private javax.swing.JButton PayBtn;
+    private javax.swing.JTable PaymentHistoryTbl;
     private javax.swing.JComboBox<String> PaymentsCbx;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTable TicketsTbl;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -200,7 +237,5 @@ public class Pay extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
 }
