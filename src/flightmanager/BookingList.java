@@ -406,15 +406,15 @@ public class BookingList extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private static int Key = 0;
+    private static String Key = "";
 
-    public static int getKey() {
+    public static String getKey() {
         return Key;
     }
 
     private void BookingListTblMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_BookingListTblMouseClicked
         int row = BookingListTbl.getSelectedRow();
-        Key = Integer.parseInt(BookingListTbl.getValueAt(row, 0).toString());
+        Key = BookingListTbl.getValueAt(row, 0).toString();
     }// GEN-LAST:event_BookingListTblMouseClicked
 
     private void BookBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_BookBtnActionPerformed

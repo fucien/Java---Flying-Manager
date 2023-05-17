@@ -14,12 +14,10 @@ public class Payment {
         HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
         server.createContext("/api/payment", (exchange -> {
 
-            if ("GET".equals(exchange.getRequestMethod())) {
-                String responseText = "Hello World! from our framework-less REST API\n";
-                exchange.sendResponseHeaders(200, responseText.getBytes().length);
-                OutputStream output = exchange.getResponseBody();
-                output.write(responseText.getBytes());
-                output.flush();
+            if ("POST".equals(exchange.getRequestMethod())) {
+                InputStream is = exchange.getRequestBody();
+                String body = new String(is.readAllBytes(), StandardCharsets.UTF_8);
+                System.out.println(body);
             } else {
                 exchange.sendResponseHeaders(405, -1);// 405 Method Not Allowed
             }

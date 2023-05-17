@@ -4,6 +4,12 @@
  */
 package flightmanager;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import net.proteanit.sql.DbUtils;
+
 /**
  *
  * @author Admin
@@ -188,6 +194,24 @@ public class Pay extends javax.swing.JFrame {
         });
     }
 
+    
+    Connection Con = null;
+    ResultSet Rs = null, Rs1 = null;
+    Statement St = null, St1 = null;
+    int Key = -1;
+    private void DisplayTicket()
+    {
+        try {
+            Connection Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest", "ien", "7302");
+            Statement St = Con.createStatement();
+            String Query = "SELECT * FROM tickets";
+            ResultSet Rs = St.executeQuery(Query);
+            jTable1.setModel(DbUtils.resultSetToTableModel(Rs));
+        } catch (Exception e) {
+        }
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ABlbl;
     private javax.swing.JComboBox<String> PaymentsCbx;
