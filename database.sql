@@ -1,6 +1,6 @@
 -- Tạo bảng flights
 CREATE TABLE IF NOT EXISTS flights (
-  flight_id SERIAL PRIMARY KEY,
+  flight_id VARCHAR(255) PRIMARY KEY,
   airline VARCHAR(255) NOT NULL,
   departure VARCHAR(255) NOT NULL,
   arrival VARCHAR(255) NOT NULL,
