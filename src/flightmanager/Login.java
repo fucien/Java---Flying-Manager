@@ -97,11 +97,6 @@ public class Login extends javax.swing.JFrame {
         jButton2.setBackground(new java.awt.Color(255, 0, 0));
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("X");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
-            }
-        });
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -140,7 +135,7 @@ public class Login extends javax.swing.JFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-user-30.png")));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flightmanager/icons8-lock-30.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-lock-30.png"))); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 62, 62));
@@ -231,10 +226,11 @@ public class Login extends javax.swing.JFrame {
             try {
                 Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest", "ien", "7302");
                 St = Con.createStatement();
-                Rs = St.executeQuery("Select * from User1.LOGIN where USERNAME='" + UsernameTb.getText() + "' and PASSWORD='" + PasswordTb.getText() + "'");
-                String isAdmin = Rs.getString("ISADMIN");
+                Rs = St.executeQuery("Select * from public.accounts where id='" + UsernameTb.getText() + "' and PASSWORD='" + PasswordTb.getText() + "'");
+                
                 if (Rs.next()) {
-                    if (isAdmin.equals("Y")) {
+                    int isAdmin = Rs.getInt("isadmin");
+                    if (isAdmin == 1) {
                         new Main().setVisible(true);
                         new Main().pack();
                         new Main().setLocationRelativeTo(null);
