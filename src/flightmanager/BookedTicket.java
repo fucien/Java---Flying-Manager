@@ -73,7 +73,7 @@ public class BookedTicket extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 62, 62));
-        jLabel1.setText("Booking Ticket");
+        jLabel1.setText("Booked Ticket");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
