@@ -37,7 +37,6 @@ public class Passengers extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         NatCb = new javax.swing.JComboBox<>();
         PName = new javax.swing.JTextField();
@@ -49,10 +48,7 @@ public class Passengers extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         PassengersTable = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
-        Password = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
         Passport = new javax.swing.JTextField();
-        Status = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -77,10 +73,6 @@ public class Passengers extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Passport");
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Password");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -155,53 +147,20 @@ public class Passengers extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("List");
 
-        Password.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel8.setText("Admin status");
-
         Passport.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-
-        Status.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        Status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(Passport, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(PName, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(32, 32, 32)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
-                    .addComponent(NatCb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel6))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addComponent(PhoneNum, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(Status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(17, 17, 17))
+                .addGap(116, 116, 116)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 603, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 163, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(266, 266, 266))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -215,16 +174,33 @@ public class Passengers extends javax.swing.JFrame {
                         .addComponent(BackBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(396, 396, 396)
-                        .addComponent(jLabel7)))
+                        .addComponent(jLabel7))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(149, 149, 149)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Passport, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(PName, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addComponent(NatCb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel2)
+                                .addGap(29, 29, 29)))
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(PhoneNum, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel6))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(116, 116, 116)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 603, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addGap(245, 245, 245))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -234,21 +210,17 @@ public class Passengers extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel8)
-                        .addComponent(jLabel6))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel5)
+                        .addComponent(jLabel6)
                         .addComponent(jLabel2)
-                        .addComponent(jLabel1)
-                        .addComponent(jLabel4)))
+                        .addComponent(jLabel1))
+                    .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NatCb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PhoneNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Passport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(NatCb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(PName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Passport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(PhoneNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SaveBtn)
@@ -313,31 +285,23 @@ public class Passengers extends javax.swing.JFrame {
         PName.setText("");
         NatCb.setSelectedIndex(0);
         Passport.setText("");
-        Password.setText("");
         PhoneNum.setText("");
-        Status.setSelectedIndex(0);
     }
     
     private void SaveBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SaveBtnMouseClicked
-        if (PName.getText().isEmpty() || Password.getText().isEmpty() || PhoneNum.getText().isEmpty() || Passport.getText().isEmpty())
+        if (PName.getText().isEmpty() || PhoneNum.getText().isEmpty() || Passport.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(this, "Missing Information");
         } else{
             try{
                 CountPassengers();
                 Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest", "ien", "7302");
-                PreparedStatement Add = Con.prepareStatement("INSERT INTO users VALUES(?,?,?,?,?,?,?)");
+                PreparedStatement Add = Con.prepareStatement("INSERT INTO users VALUES(?,?,?,?,?)");
                 Add.setInt(1, PassId);
                 Add.setString(2, PName.getText());
                 Add.setString(3, NatCb.getSelectedItem().toString());
                 Add.setString(4, Passport.getText());
-                Add.setString(5, Password.getText());
-                Add.setString(6, PhoneNum.getText());
-                Add.setInt(7, Status.getSelectedIndex());
-
-                
-                
-
+                Add.setString(5, PhoneNum.getText());
                 int row = Add.executeUpdate();
                 JOptionPane.showMessageDialog(this, "Passenger Added");
                 Con.close();
@@ -376,10 +340,7 @@ public class Passengers extends javax.swing.JFrame {
         PName.setText(model.getValueAt(MyIndex, 1).toString());
         NatCb.setSelectedItem(model.getValueAt(MyIndex, 2).toString());
         Passport.setText(model.getValueAt(MyIndex, 3).toString());
-        Password.setText(model.getValueAt(MyIndex, 4).toString());
-        PhoneNum.setText(model.getValueAt(MyIndex, 5).toString());
-        Status.setSelectedItem(model.getValueAt(MyIndex, 6).toString());
-
+        PhoneNum.setText(model.getValueAt(MyIndex, 4).toString());
     }//GEN-LAST:event_PassengersTableMouseClicked
 
     private void BackBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackBtnMouseClicked
@@ -394,15 +355,13 @@ public class Passengers extends javax.swing.JFrame {
         } else{
             try{
                 Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest", "ien", "7302");
-                String Query = "UPDATE users SET name=?,nationality=?,passport=?,password=?,phone_number=?,isAdmin=? WHERE user_id=?";
+                String Query = "UPDATE users SET name=?,nationality=?,passport=?,phone_number=? WHERE user_id=?";
                 PreparedStatement Add = Con.prepareStatement(Query);
                 Add.setString(1, PName.getText());
                 Add.setString(2, NatCb.getSelectedItem().toString());
                 Add.setString(3, Passport.getText());
-                Add.setString(4, Password.getText());
-                Add.setString(5, PhoneNum.getText());
-                Add.setInt(6, Status.getSelectedIndex());
-                Add.setInt(7, Key);
+                Add.setString(4, PhoneNum.getText());
+                Add.setInt(5, Key);
                 int row = Add.executeUpdate();
                 JOptionPane.showMessageDialog(this, "Passenger updated");
                 Con.close();
@@ -457,18 +416,14 @@ public class Passengers extends javax.swing.JFrame {
     private javax.swing.JTextField PName;
     private javax.swing.JTable PassengersTable;
     private javax.swing.JTextField Passport;
-    private javax.swing.JTextField Password;
     private javax.swing.JTextField PhoneNum;
     private javax.swing.JButton SaveBtn;
-    private javax.swing.JComboBox<String> Status;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
