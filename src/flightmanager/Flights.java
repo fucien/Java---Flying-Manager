@@ -43,19 +43,17 @@ public class Flights extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        FSourceCb = new javax.swing.JComboBox<>();
-        FDestCb = new javax.swing.JComboBox<>();
         FCodeTb = new javax.swing.JTextField();
         FSeatsTb = new javax.swing.JTextField();
-        SaveBtn = new javax.swing.JButton();
         EditBtn = new javax.swing.JButton();
         DeleteBtn = new javax.swing.JButton();
         BackBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         FlightsTable = new javax.swing.JTable();
-        jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         PriceTbx = new javax.swing.JTextField();
+        FDesTbx = new javax.swing.JTextField();
+        FSourceTbx = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -85,25 +83,10 @@ public class Flights extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Price");
 
-        FSourceCb.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        FSourceCb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        FDestCb.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        FDestCb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         FCodeTb.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        FCodeTb.setEnabled(false);
 
         FSeatsTb.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-
-        SaveBtn.setBackground(new java.awt.Color(255, 62, 62));
-        SaveBtn.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        SaveBtn.setForeground(new java.awt.Color(255, 255, 255));
-        SaveBtn.setText("Save");
-        SaveBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                SaveBtnMouseClicked(evt);
-            }
-        });
 
         EditBtn.setBackground(new java.awt.Color(255, 62, 62));
         EditBtn.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -153,10 +136,6 @@ public class Flights extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(FlightsTable);
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("List");
-
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Number of seat");
@@ -164,64 +143,60 @@ public class Flights extends javax.swing.JFrame {
         PriceTbx.setMinimumSize(new java.awt.Dimension(64, 33));
         PriceTbx.setPreferredSize(new java.awt.Dimension(64, 33));
 
+        FDesTbx.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        FDesTbx.setEnabled(false);
+
+        FSourceTbx.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        FSourceTbx.setEnabled(false);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(64, 64, 64)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel4)
+                        .addGap(31, 31, 31))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(FCodeTb, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(FSourceTbx, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(FDesTbx, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addGap(59, 59, 59)
+                        .addComponent(jLabel6)
+                        .addGap(37, 37, 37))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(FSeatsTb, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43)
+                        .addComponent(PriceTbx, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(27, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(EditBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(DeleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(BackBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(214, 214, 214))
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(266, 266, 266)
                 .addComponent(jLabel3)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(154, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(368, 368, 368))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(SaveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37)
-                        .addComponent(EditBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addComponent(DeleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(BackBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(150, 150, 150))))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(44, 44, 44))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(FCodeTb, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(FSourceCb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(20, 20, 20)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(FDestCb, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(31, 31, 31)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addGap(59, 59, 59)
-                                .addComponent(jLabel6)
-                                .addGap(37, 37, 37))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(FSeatsTb, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(43, 43, 43)
-                                .addComponent(PriceTbx, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(72, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -237,22 +212,20 @@ public class Flights extends javax.swing.JFrame {
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(FSeatsTb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FDestCb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(FSourceCb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(FCodeTb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(FSeatsTb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(FDesTbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(FCodeTb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(FSourceTbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(PriceTbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SaveBtn)
                     .addComponent(EditBtn)
                     .addComponent(DeleteBtn)
                     .addComponent(BackBtn))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -289,8 +262,8 @@ public class Flights extends javax.swing.JFrame {
     private void Clear()
     {
         FCodeTb.setText("");
-        FSourceCb.setSelectedIndex(-1);
-        FDestCb.setSelectedIndex(-1);
+        FSourceTbx.setText("");
+        FDesTbx.setText("");
         FSeatsTb.setText("");
         PriceTbx.setText("");
     }
@@ -299,30 +272,6 @@ public class Flights extends javax.swing.JFrame {
         new Main().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BackBtnMouseClicked
-
-    private void SaveBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SaveBtnMouseClicked
-        if (FCodeTb.getText().isEmpty() || FSourceCb.getSelectedIndex() == -1 || FDestCb.getSelectedIndex() == -1 || FSeatsTb.getText().isEmpty())
-        {
-            JOptionPane.showMessageDialog(this, "Missing Information");
-        } else{
-            try{
-                Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest","ien","7302");
-                PreparedStatement Add = Con.prepareStatement("INSERT INTO flights VALUES(?,?,?,?,?)");
-                Add.setString(1, FCodeTb.getText());
-                Add.setString(2, FSourceCb.getSelectedItem().toString());
-                Add.setString(3, FDestCb.getSelectedItem().toString());
-                Add.setInt(4, Integer.valueOf(FSeatsTb.getText()));
-                Add.setInt(5, Integer.valueOf(PriceTbx.getText()));
-                int row = Add.executeUpdate();
-                JOptionPane.showMessageDialog(this, "Flight Added");
-                Con.close();
-                DisplayFlight();
-                Clear();
-            } catch (Exception e){
-                JOptionPane.showMessageDialog(this, e);
-            }
-        }
-    }//GEN-LAST:event_SaveBtnMouseClicked
 
     private void DeleteBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeleteBtnMouseClicked
         if (Key == "")
@@ -349,8 +298,8 @@ public class Flights extends javax.swing.JFrame {
         int MyIndex = FlightsTable.getSelectedRow();
         Key = model.getValueAt(MyIndex, 0).toString();
         FCodeTb.setText(model.getValueAt(MyIndex,0).toString());
-        FSourceCb.setSelectedItem(model.getValueAt(MyIndex, 1).toString());
-        FDestCb.setSelectedItem(model.getValueAt(MyIndex, 2).toString());
+        FSourceTbx.setText(model.getValueAt(MyIndex, 1).toString());
+        FDesTbx.setText(model.getValueAt(MyIndex, 2).toString());
         FSeatsTb.setText(model.getValueAt(MyIndex, 3).toString());
         PriceTbx.setText(model.getValueAt(MyIndex, 4).toString());
     }//GEN-LAST:event_FlightsTableMouseClicked
@@ -365,8 +314,8 @@ public class Flights extends javax.swing.JFrame {
                 String Query = "UPDATE flights SET FlSource=?,FlDest=?,FlDate=?,FlSeats=? WHERE FlCode=?";
                 PreparedStatement Add = Con.prepareStatement(Query);
                 Add.setString(5, Key);
-                Add.setString(1, FSourceCb.getSelectedItem().toString());
-                Add.setString(2, FDestCb.getSelectedItem().toString());
+                Add.setString(1, FSourceTbx.getText().toString());
+                Add.setString(2, FDesTbx.getText().toString());
                 Add.setString(3, FSeatsTb.getText());
                 Add.setString(4, PriceTbx.getText());
                 int row = Add.executeUpdate();
@@ -420,18 +369,16 @@ public class Flights extends javax.swing.JFrame {
     private javax.swing.JButton DeleteBtn;
     private javax.swing.JButton EditBtn;
     private javax.swing.JTextField FCodeTb;
-    private javax.swing.JComboBox<String> FDestCb;
+    private javax.swing.JTextField FDesTbx;
     private javax.swing.JTextField FSeatsTb;
-    private javax.swing.JComboBox<String> FSourceCb;
+    private javax.swing.JTextField FSourceTbx;
     private javax.swing.JTable FlightsTable;
     private javax.swing.JTextField PriceTbx;
-    private javax.swing.JButton SaveBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
