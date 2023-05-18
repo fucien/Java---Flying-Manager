@@ -420,7 +420,7 @@ public class BookingList extends javax.swing.JFrame {
             e.printStackTrace();
         }
         JOptionPane.showMessageDialog(this, "Ticket booked successfully, check the payment tab to proceed to checkout.");
-        //this.dispose();
+        this.dispose();
     }// GEN-LAST:event_BookBtnMouseClicked
 
     /**

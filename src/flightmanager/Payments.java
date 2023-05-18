@@ -17,6 +17,7 @@ import java.text.SimpleDateFormat;
 import java.text.*;
 import java.util.*;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
@@ -180,8 +181,7 @@ public class Payments extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        new Main().setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void BookingListTblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BookingListTblMouseClicked
