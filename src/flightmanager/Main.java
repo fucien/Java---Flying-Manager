@@ -112,7 +112,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        LogoutBtn.setBackground(new java.awt.Color(27, 46, 83));
+        LogoutBtn.setBackground(new java.awt.Color(255, 62, 62));
         LogoutBtn.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         LogoutBtn.setForeground(new java.awt.Color(255, 255, 255));
         LogoutBtn.setText("Log out");
@@ -145,7 +145,7 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton9)))
-                .addGap(0, 21, Short.MAX_VALUE))
+                .addGap(0, 18, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,8 +165,7 @@ public class Main extends javax.swing.JFrame {
                             .addComponent(jLabel1)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jButton9)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(LogoutBtn)
                 .addGap(56, 56, 56))

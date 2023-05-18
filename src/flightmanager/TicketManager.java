@@ -67,7 +67,7 @@ public class TicketManager extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 62, 62));
-        jLabel3.setText("Manage Flights");
+        jLabel3.setText("Manage Tickets");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
