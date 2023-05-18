@@ -109,9 +109,9 @@ public class Pay extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 62, 62));
         jLabel2.setText("Payment Method");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 62, 62));
-        jLabel3.setText("Select ticket");
+        jLabel3.setText("Select Ticket");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

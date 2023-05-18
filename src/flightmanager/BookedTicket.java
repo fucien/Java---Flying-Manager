@@ -35,7 +35,7 @@ public class BookedTicket extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(27, 46, 53));
+        jPanel1.setBackground(new java.awt.Color(27, 46, 83));
         jPanel1.setToolTipText("");
 
         BookingListTbl.setModel(new javax.swing.table.DefaultTableModel(
@@ -71,7 +71,7 @@ public class BookedTicket extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 62, 62));
         jLabel1.setText("Booking Ticket");
 
