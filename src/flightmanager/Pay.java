@@ -33,9 +33,13 @@ public class Pay extends javax.swing.JFrame {
         try {
             Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest", "ien", "7302");
             St = Con.createStatement();
-            Rs = St.executeQuery("SELECT * FROM FM.FLIGHTS");
-            String isBooked = Rs.getString("ISBOOKED");
-            if (isBooked.equals("false")) {
+            Rs = St.executeQuery("SELECT * FROM bookings");
+            String isBooked = "";
+            if (Rs.next()) {
+                isBooked = Rs.getString("status");
+            }
+            
+            if (isBooked.equals("Pending")) {
                 TicketsTbl.setModel(DbUtils.resultSetToTableModel(Rs));
             }
             else {
@@ -292,7 +296,7 @@ public class Pay extends javax.swing.JFrame {
         try {
             Connection Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest", "ien", "7302");
             Statement St = Con.createStatement();
-            String Query = "SELECT * FROM tickets";
+            String Query = "SELECT * FROM bookings";
             ResultSet Rs = St.executeQuery(Query);
             TicketsTbl.setModel(DbUtils.resultSetToTableModel(Rs));
         } catch (Exception e) {

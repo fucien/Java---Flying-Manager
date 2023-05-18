@@ -27,6 +27,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -38,7 +39,6 @@ import org.w3c.dom.NodeList;
 import javax.xml.xpath.*;
 import org.xml.sax.*;
 //import src.flightmanager.*;
-import net.proteanit.sql.DbUtils;
 
 /**
  *
@@ -368,14 +368,36 @@ public class BookingList extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private static String Key = "";
+    private int price;
+    Connection Con = null;
+    Statement St = null;
+    ResultSet Rs = null;
 
     public static String getKey() {
         return Key;
     }
 
+    public static void setKey(String key) {
+        Key = key;
+    }
+    
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
     private void BookingListTblMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_BookingListTblMouseClicked
         int row = BookingListTbl.getSelectedRow();
-        Key = BookingListTbl.getValueAt(row, 0).toString();
+        setKey(BookingListTbl.getValueAt(row, 0).toString());
+        setPrice(Integer.parseInt(BookingListTbl.getValueAt(row, 7).toString()));
+        System.out.println(price);
+        System.out.println(Key);
+        
+        
+        
     }// GEN-LAST:event_BookingListTblMouseClicked
 
     private void BookBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_BookBtnActionPerformed
@@ -384,8 +406,21 @@ public class BookingList extends javax.swing.JFrame {
 
     private void BookBtnMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_BookBtnMouseClicked
 //        Payment pay = new Payment();
+          String username = Login.getUsername();
+
 //        pay.setVisible(true);
-        this.dispose();
+         try {
+            Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest", "ien", "7302");
+            St = Con.createStatement();
+            System.out.println(price);
+            System.out.println(Key);
+            System.out.println(username);
+            Rs = St.executeQuery("INSERT INTO bookings (user_id, flight_id, price) VALUES ('" + username + "', '" + getKey() + "', " + getPrice() + ")");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        JOptionPane.showMessageDialog(this, "Ticket booked successfully, check the payment tab to proceed to checkout.");
+        //this.dispose();
     }// GEN-LAST:event_BookBtnMouseClicked
 
     /**

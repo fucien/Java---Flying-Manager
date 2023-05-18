@@ -22,10 +22,11 @@ CREATE TABLE IF NOT EXISTS users (
 -- Tạo bảng bookings
 CREATE TABLE IF NOT EXISTS bookings (
   booking_id SERIAL PRIMARY KEY,
-  user_id INTEGER,
+  user_id VARCHAR(255) NOT NULL,
   flight_id VARCHAR(255) NOT NULL,
-  price INTEGER REFERENCES flights,
-  status VARCHAR(255) NOT NULL
+  price INTEGER,
+  status VARCHAR(255) NOT NULL DEFAULT 'Pending',
+  method VARCHAR (255)
 );
 
 -- Tạo bảng payments
@@ -53,7 +54,7 @@ CREATE FUNCTION create_account_after_user_insert()
 RETURNS TRIGGER AS $$
 BEGIN
   INSERT INTO accounts (id, password)
-  VALUES (NEW.passport, NEW.password);
+  VALUES (NEW.passport, 1);
   RETURN NULL;
 END;
 $$ LANGUAGE plpgsql;

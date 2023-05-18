@@ -16,10 +16,14 @@ public class Login extends javax.swing.JFrame {
      * Creates new form Login
      */
 
-    private String username;
+    public static String username;
 
-    public String getUsername() {
+    public static String getUsername() {
         return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public Login() {
@@ -228,11 +232,13 @@ public class Login extends javax.swing.JFrame {
                         new Main().setVisible(true);
                         new Main().pack();
                         new Main().setLocationRelativeTo(null);
+                        setUsername(UsernameTb.getText());
                         new Main().setDefaultCloseOperation(Login.EXIT_ON_CLOSE);
                     } else {
                         new User().setVisible(true);
                         new User().pack();
                         new User().setLocationRelativeTo(null);
+                        setUsername(UsernameTb.getText());
                         new User().setDefaultCloseOperation(Login.EXIT_ON_CLOSE);
                     }
                     this.dispose();
