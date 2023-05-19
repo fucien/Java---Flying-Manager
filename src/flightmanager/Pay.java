@@ -73,6 +73,7 @@ public class Pay extends javax.swing.JFrame {
             System.out.println(Login.getUsername());
             Rs = St.executeQuery("SELECT * FROM bookings where user_id = '" + Login.getUsername()+ "' AND status = 'Pending'" );
             TicketsTbl.setModel(DbUtils.resultSetToTableModel(Rs));
+            setFlight_id(TicketsTbl.getValueAt(0, 2).toString());
             if (TicketsTbl.getRowCount() == 0) {
                 JOptionPane.showMessageDialog(this, "You have no pending tickets");
             }
@@ -128,6 +129,11 @@ public class Pay extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        TicketsTbl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TicketsTblMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(TicketsTbl);
 
         PayBtn.setBackground(new java.awt.Color(255, 62, 62));
@@ -145,6 +151,11 @@ public class Pay extends javax.swing.JFrame {
         PaymentsCbx.setBackground(new java.awt.Color(255, 62, 62));
         PaymentsCbx.setForeground(new java.awt.Color(255, 255, 255));
         PaymentsCbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CreditCard", "Visa", "Paypal", "Cash" }));
+        PaymentsCbx.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PaymentsCbxActionPerformed(evt);
+            }
+        });
 
         jLabel2.setForeground(new java.awt.Color(255, 62, 62));
         jLabel2.setText("Payment Method");
@@ -280,6 +291,7 @@ public class Pay extends javax.swing.JFrame {
         int row = TicketsTbl.getSelectedRow();
         setUser_id(TicketsTbl.getValueAt(row, 1).toString());
         setFlight_id(TicketsTbl.getValueAt(row, 2).toString());
+        System.out.println(getUser_id() + " " + getFlight_id() + " " + getMethod());
     }// GEN-LAST:event_BookingListTblMouseClicked
 
     private void PaymentsCbxActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_PaymentsCbxActionPerformed
@@ -296,6 +308,7 @@ public class Pay extends javax.swing.JFrame {
             // Prepare the request body
             System.out.println(getUser_id() + " " + getFlight_id() + " " + getMethod());
             System.out.println("Sending a payment request");
+            
 
             JSONObject requestBodyJson = new JSONObject();
             try {
