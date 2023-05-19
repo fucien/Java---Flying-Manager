@@ -54,6 +54,43 @@ public class Booking extends javax.swing.JFrame {
         getAirportName();
     }
 
+    public class Airport{
+        String name;
+        String code;
+        String city;
+
+        Airport(String name, String code, String city){
+            this.name = name;
+            this.code = code;
+            this.city = city;
+        }
+
+        public String getName(){
+            return name;
+        }
+
+        public String getCode(){
+            return code;
+        }
+
+        public String getCity(){
+            return city;
+        }
+
+
+        public void setName(String name){
+            this.name = name;
+        }
+
+        public void setCode(String code){
+            this.code = code;
+        }
+
+        public void setCity(String city){
+            this.city = city;
+        }
+    } 
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -92,7 +129,7 @@ public class Booking extends javax.swing.JFrame {
         jLabel5.setText("Booking");
 
         jButton1.setBackground(new java.awt.Color(255, 62, 62));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 20)));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 20));
     jButton1.setForeground(new java.awt.Color(255, 255, 255));
     jButton1.setText("Search");
     jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -208,10 +245,24 @@ public class Booking extends javax.swing.JFrame {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jButton1MouseClicked
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
         try {
+            String code1 = "";
+            String code2 = "";
+            Connection Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest", "ien", "7302");
+            Statement St = Con.createStatement();
+            String Query = "SELECT * FROM airport where city = '" + jComboBox1.getSelectedItem().toString() + "'";
+            ResultSet Rs1 = St.executeQuery(Query);
+            while (Rs1.next()) {
+                code1 = Rs1.getString("airport_code");
+            }
+            Query = "SELECT * FROM airport where city = '" + jComboBox2.getSelectedItem().toString() + "'";
+            ResultSet Rs2 = St.executeQuery(Query);
+            while (Rs2.next()) {
+                code2 = Rs2.getString("airport_code");
+            }
             url = new URL("https://timetable-lookup.p.rapidapi.com/TimeTable/"
-                    + jComboBox1.getSelectedItem().toString() + "/" + jComboBox2.getSelectedItem().toString() + "/"
+                    + code1 + "/" + code2 + "/"
                     + dateFormat.format(jDateChooser1.getDate()));
-        } catch (MalformedURLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -243,9 +294,9 @@ public class Booking extends javax.swing.JFrame {
             String Query = "SELECT * FROM airport";
             ResultSet Rs = St.executeQuery(Query);
             while (Rs.next()) {
-                String Airport_code = Rs.getString("Airport_code");
-                jComboBox1.addItem(Airport_code);
-                jComboBox2.addItem(Airport_code);
+                String city = Rs.getString("city");
+                jComboBox1.addItem(city);
+                jComboBox2.addItem(city);
             }
 
         } catch (SQLException e) {
