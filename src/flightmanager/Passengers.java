@@ -245,7 +245,7 @@ public class Passengers extends javax.swing.JFrame {
     Connection Con = null;
     ResultSet Rs = null, Rs1 = null;
     Statement St = null, St1 = null;
-    int Key = -1;
+    String Key = "";
     private void DisplayPassengers()
     {
         try {
@@ -305,7 +305,7 @@ public class Passengers extends javax.swing.JFrame {
     }//GEN-LAST:event_SaveBtnMouseClicked
 
     private void DeleteBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeleteBtnMouseClicked
-        if (Key == -1)
+        if (Key == "")
         {
             JOptionPane.showMessageDialog(this, "Select a passenger");
         } else{
@@ -327,11 +327,11 @@ public class Passengers extends javax.swing.JFrame {
     private void PassengersTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PassengersTableMouseClicked
         DefaultTableModel model = (DefaultTableModel)PassengersTable.getModel();
         int MyIndex = PassengersTable.getSelectedRow();
-        Key = Integer.parseInt(model.getValueAt(MyIndex, 0).toString());
-        PName.setText(model.getValueAt(MyIndex, 1).toString());
-        NatCb.setSelectedItem(model.getValueAt(MyIndex, 2).toString());
-        Passport.setText(model.getValueAt(MyIndex, 3).toString());
-        PhoneNum.setText(model.getValueAt(MyIndex, 4).toString());
+        Key = model.getValueAt(MyIndex, 2).toString();
+        PName.setText(model.getValueAt(MyIndex, 0).toString());
+        NatCb.setSelectedItem(model.getValueAt(MyIndex, 1).toString());
+        Passport.setText(model.getValueAt(MyIndex, 2).toString());
+        PhoneNum.setText(model.getValueAt(MyIndex, 3).toString());
     }//GEN-LAST:event_PassengersTableMouseClicked
 
     private void BackBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackBtnMouseClicked
@@ -340,7 +340,7 @@ public class Passengers extends javax.swing.JFrame {
     }//GEN-LAST:event_BackBtnMouseClicked
 
     private void EditBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EditBtnMouseClicked
-        if (Key == 0)
+        if (Key == "")
         {
             JOptionPane.showMessageDialog(this, "Select a passenger");
         } else{
@@ -352,7 +352,7 @@ public class Passengers extends javax.swing.JFrame {
                 Add.setString(2, NatCb.getSelectedItem().toString());
                 Add.setString(3, Passport.getText());
                 Add.setString(4, PhoneNum.getText());
-                Add.setInt(5, Key);
+                Add.setString(5, Key);
                 int row = Add.executeUpdate();
                 JOptionPane.showMessageDialog(this, "Passenger updated");
                 Con.close();

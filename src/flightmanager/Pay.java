@@ -74,7 +74,7 @@ public class Pay extends javax.swing.JFrame {
             System.out.println(Login.getUsername());
             Rs = St.executeQuery("SELECT * FROM bookings where user_id = '" + Login.getUsername()+ "' AND status = 'Pending'" );
             TicketsTbl.setModel(DbUtils.resultSetToTableModel(Rs));
-            setFlight_id(TicketsTbl.getValueAt(0, 2).toString());
+            //setFlight_id(TicketsTbl.getValueAt(0, 2).toString());
             if (TicketsTbl.getRowCount() == 0) {
                 JOptionPane.showMessageDialog(this, "You have no pending tickets");
             }

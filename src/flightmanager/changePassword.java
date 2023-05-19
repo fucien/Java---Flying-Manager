@@ -5,6 +5,7 @@
 package flightmanager;
 
 import java.sql.*;
+import javax.swing.JOptionPane;
 /**
  *
  * @author trietnguyen
@@ -180,7 +181,7 @@ public class changePassword extends javax.swing.JFrame {
         try {
             // changing password
             Login login = new Login();
-            String username = login.getUsername();
+            String username = Login.getUsername();
 
             Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest", "ien", "7302");
             St = Con.createStatement();
@@ -193,6 +194,7 @@ public class changePassword extends javax.swing.JFrame {
             if (oldPassword.equals(oldPasswordInput) && newPassword.equals(confirmPassword)) {
                 St1 = Con.createStatement();
                 St1.executeUpdate("UPDATE public.accounts SET password = '" + newPassword + "' WHERE id = '" + username + "'");
+                JOptionPane.showMessageDialog(this,"Password changed successfully.");
                 new User().setVisible(true);
                 dispose();
             } else {
