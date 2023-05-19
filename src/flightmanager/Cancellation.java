@@ -41,8 +41,6 @@ public class Cancellation extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         ResetBtn = new javax.swing.JButton();
-        CDate = new com.toedter.calendar.JDateChooser();
-        jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         CancelBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -75,10 +73,6 @@ public class Cancellation extends javax.swing.JFrame {
                 ResetBtnMouseClicked(evt);
             }
         });
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Take of date");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -145,33 +139,30 @@ public class Cancellation extends javax.swing.JFrame {
                         .addGap(338, 338, 338)
                         .addComponent(jLabel9))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(154, 154, 154)
-                        .addComponent(CancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50)
-                        .addComponent(ResetBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(BackBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(154, 154, 154)
+                                .addComponent(CancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(50, 50, 50))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(TIdCb, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(37, 37, 37)))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(FCodeTb, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(ResetBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(BackBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(0, 169, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(45, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(TIdCb, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(36, 36, 36)
-                                .addComponent(FCodeTb, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                .addGap(49, 49, 49)
-                                .addComponent(jLabel1)
-                                .addGap(32, 32, 32)))
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(CDate, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(149, 149, 149))
+                        .addComponent(jLabel2)
+                        .addGap(104, 104, 104)
+                        .addComponent(jLabel1)
+                        .addGap(251, 251, 251))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addGap(178, 178, 178))
@@ -187,14 +178,11 @@ public class Cancellation extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel7)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(CDate, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(FCodeTb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(TIdCb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(FCodeTb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TIdCb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(CancelBtn)
@@ -232,7 +220,7 @@ public class Cancellation extends javax.swing.JFrame {
         try {
             Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest","ien","7302");
             St = Con.createStatement();
-            String Query = "SELECT * FROM bookings where user_id='" + Login.getUsername() + "' where status='Pending'";
+            String Query = "SELECT * FROM bookings where user_id='" + Login.getUsername() + "' and status='Pending'";
             Rs = St.executeQuery(Query);
             while (Rs.next())
             {
@@ -265,7 +253,7 @@ public class Cancellation extends javax.swing.JFrame {
         try {
             Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest","ien","7302");
             St = Con.createStatement();
-            Rs = St.executeQuery("SELECT * FROM bookings where user_id='" + Login.getUsername() + "' where status='Pending'");
+            Rs = St.executeQuery("SELECT * FROM bookings where user_id='" + Login.getUsername() + "' and status='Pending'");
             CancellationTable.setModel(DbUtils.resultSetToTableModel(Rs));
         } catch (Exception e) {
         }
@@ -293,20 +281,21 @@ public class Cancellation extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Missing Information");
         } else{
             try{
-                CountCanc();
-                Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest","ien","7302");
-                PreparedStatement Add = Con.prepareStatement("");
-                Add.setInt(1, CId);
-                Add.setInt(2, Integer.valueOf(TIdCb.getSelectedItem().toString()));
-                Add.setString(3, FCodeTb.getText());
-                java.util.Date javaDate = CDate.getDate();
-		long javaTime = javaDate.getTime();
-		java.sql.Date sqlDate = new java.sql.Date(javaTime);
-                Add.setDate(4, sqlDate);
-                int row = Add.executeUpdate();
-                JOptionPane.showMessageDialog(this, "Ticket cancelled");
+                // CountCanc();
+                // Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest","ien","7302");
+                // PreparedStatement Add = Con.prepareStatement("");
+                // Add.setInt(1, CId);
+                // Add.setInt(2, Integer.valueOf(TIdCb.getSelectedItem().toString()));
+                // Add.setString(3, FCodeTb.getText());
+//                java.util.Date javaDate = CDate.getDate();
+//		long javaTime = javaDate.getTime();
+//		java.sql.Date sqlDate = new java.sql.Date(javaTime);
+//                Add.setDate(4, sqlDate);
+                // int row = Add.executeUpdate();
+
                 Con.close();
                 Cancel();
+                JOptionPane.showMessageDialog(this, "Ticket cancelled");
                 DisplayCanc();;
                 GetTicket();
             } catch (Exception e){
@@ -322,7 +311,7 @@ public class Cancellation extends javax.swing.JFrame {
 
     private void ResetBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResetBtnMouseClicked
         FCodeTb.setText("");
-        CDate.setCalendar(null);
+        //CDate.setCalendar(null);
     }//GEN-LAST:event_ResetBtnMouseClicked
 
     private void CancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelBtnActionPerformed
@@ -333,7 +322,7 @@ public class Cancellation extends javax.swing.JFrame {
     {
         try {
                 Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest","ien","7302");
-                String Query = "DELETE FROM BoongkingTbl WHERE TiketId=" + TIdCb.getSelectedItem();
+                String Query = "UPDATE bookings SET status='Cancelled' WHERE booking_id=" + TIdCb.getSelectedItem().toString();
                 Statement Del = Con.createStatement();
                 Del.executeUpdate(Query);
             } catch (Exception e) {
@@ -378,7 +367,6 @@ public class Cancellation extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BackBtn;
-    private com.toedter.calendar.JDateChooser CDate;
     private javax.swing.JButton CancelBtn;
     private javax.swing.JTable CancellationTable;
     private javax.swing.JTextField FCodeTb;
@@ -387,7 +375,6 @@ public class Cancellation extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
