@@ -4,6 +4,7 @@
  */
 package flightmanager;
 
+import java.sql.*;
 /**
  *
  * @author trietnguyen
@@ -28,7 +29,7 @@ public class changePassword extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        CloseBtn = new javax.swing.JButton();
+        BackBtn = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -47,12 +48,12 @@ public class changePassword extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-password-reset-30.png"))); // NOI18N
         jLabel3.setText(" Change Password");
 
-        CloseBtn.setBackground(new java.awt.Color(255, 0, 0));
-        CloseBtn.setForeground(new java.awt.Color(255, 255, 255));
-        CloseBtn.setText("X");
-        CloseBtn.addActionListener(new java.awt.event.ActionListener() {
+        BackBtn.setBackground(new java.awt.Color(255, 0, 0));
+        BackBtn.setForeground(new java.awt.Color(255, 255, 255));
+        BackBtn.setText("Back");
+        BackBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CloseBtnActionPerformed(evt);
+                BackBtnActionPerformed(evt);
             }
         });
 
@@ -82,6 +83,11 @@ public class changePassword extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(27, 46, 83));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/save-button.png"))); // NOI18N
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -90,8 +96,8 @@ public class changePassword extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(CloseBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 312, Short.MAX_VALUE)
+                .addComponent(BackBtn)
                 .addGap(20, 20, 20))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(83, 83, 83)
@@ -114,7 +120,7 @@ public class changePassword extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(CloseBtn)
+                    .addComponent(BackBtn)
                     .addComponent(jLabel3))
                 .addGap(50, 50, 50)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -152,10 +158,10 @@ public class changePassword extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void CloseBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseBtnActionPerformed
-        dispose();
+    private void BackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackBtnActionPerformed
         new User().setVisible(true);
-    }//GEN-LAST:event_CloseBtnActionPerformed
+        dispose();
+    }//GEN-LAST:event_BackBtnActionPerformed
 
     private void txtNewPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNewPasswordActionPerformed
         // TODO add your handling code here:
@@ -164,6 +170,41 @@ public class changePassword extends javax.swing.JFrame {
     private void txtOldPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOldPasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtOldPasswordActionPerformed
+
+    Connection Con = null;
+    ResultSet Rs = null, Rs1 = null;
+    Statement St = null, St1 = null;
+    
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        try {
+            // changing password
+            Login login = new Login();
+            String username = login.getUsername();
+
+            Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest", "ien", "7302");
+            St = Con.createStatement();
+            Rs = St.executeQuery("SELECT * FROM public.accounts WHERE id = '" + username + "'");
+            Rs.next();
+            String oldPassword = Rs.getString("password");
+            String oldPasswordInput = txtOldPassword.getText();
+            String newPassword = txtNewPassword.getText();
+            String confirmPassword = txtConfirmPassword.getText();
+            if (oldPassword.equals(oldPasswordInput) && newPassword.equals(confirmPassword)) {
+                St1 = Con.createStatement();
+                St1.executeUpdate("UPDATE public.accounts SET password = '" + newPassword + "' WHERE id = '" + username + "'");
+                new User().setVisible(true);
+                dispose();
+            } else {
+                System.out.println("Wrong password");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+        
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -201,7 +242,7 @@ public class changePassword extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton CloseBtn;
+    private javax.swing.JButton BackBtn;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;

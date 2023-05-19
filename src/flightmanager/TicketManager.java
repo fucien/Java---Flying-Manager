@@ -44,18 +44,17 @@ public class TicketManager extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        FDestCb = new javax.swing.JComboBox<>();
         SaveBtn = new javax.swing.JButton();
         EditBtn = new javax.swing.JButton();
         DeleteBtn = new javax.swing.JButton();
         BackBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         FlightsTable = new javax.swing.JTable();
-        jLabel7 = new javax.swing.JLabel();
-        FDestCb1 = new javax.swing.JComboBox<>();
-        FDestCb2 = new javax.swing.JComboBox<>();
         FDestCb3 = new javax.swing.JComboBox<>();
-        FDestCb4 = new javax.swing.JComboBox<>();
+        FCodeTbx = new javax.swing.JTextField();
+        UCodeTbx = new javax.swing.JTextField();
+        PriceTbx = new javax.swing.JTextField();
+        TCodeTbx = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -88,9 +87,6 @@ public class TicketManager extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Price");
-
-        FDestCb.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        FDestCb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         SaveBtn.setBackground(new java.awt.Color(255, 62, 62));
         SaveBtn.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -150,59 +146,20 @@ public class TicketManager extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(FlightsTable);
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("List");
-
-        FDestCb1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        FDestCb1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        FDestCb2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        FDestCb2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4", " " }));
-
         FDestCb3.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         FDestCb3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Paid", "Unpaid", " " }));
-
-        FDestCb4.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        FDestCb4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(266, 266, 266)
-                        .addComponent(jLabel3))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(372, 372, 372)
-                        .addComponent(jLabel7)))
+                .addGap(266, 266, 266)
+                .addComponent(jLabel3)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(49, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(FDestCb2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(FDestCb1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(FDestCb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(FDestCb3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(FDestCb4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))
-                        .addGap(84, 84, 84))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(SaveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(37, 37, 37)
@@ -214,14 +171,42 @@ public class TicketManager extends javax.swing.JFrame {
                         .addGap(150, 150, 150))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50))))
+                        .addGap(50, 50, 50))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(FCodeTbx, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(TCodeTbx, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(UCodeTbx, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(31, 31, 31)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(FDestCb3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(PriceTbx, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(46, 46, 46)
+                                .addComponent(jLabel6)))
+                        .addGap(82, 82, 82))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(jLabel3)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2)
@@ -229,23 +214,21 @@ public class TicketManager extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(FDestCb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FDestCb1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FDestCb2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FDestCb3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FDestCb4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(PriceTbx)
+                    .addComponent(FCodeTbx)
+                    .addComponent(FDestCb3)
+                    .addComponent(UCodeTbx)
+                    .addComponent(TCodeTbx))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SaveBtn)
                     .addComponent(EditBtn)
                     .addComponent(DeleteBtn)
                     .addComponent(BackBtn))
-                .addGap(12, 12, 12)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -280,11 +263,11 @@ public class TicketManager extends javax.swing.JFrame {
     
     private void Clear()
     {
-        FCodeTb.setText("");
-        FSourceCb.setSelectedIndex(-1);
-        FDestCb.setSelectedIndex(-1);
-        FDateTb.setCalendar(null);
-        FSeatsTb.setText("");
+        FCodeTbx.setText("");
+        TCodeTbx.setText("");
+        UCodeTbx.setText("");
+        FDestCb3.setSelectedIndex(-1);
+        PriceTbx.setText("");
     }
     
     private void BackBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackBtnMouseClicked
@@ -293,21 +276,18 @@ public class TicketManager extends javax.swing.JFrame {
     }//GEN-LAST:event_BackBtnMouseClicked
 
     private void SaveBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SaveBtnMouseClicked
-        if (FCodeTb.getText().isEmpty() || FSourceCb.getSelectedIndex() == -1 || FDestCb.getSelectedIndex() == -1 || FSeatsTb.getText().isEmpty())
+        if (FCodeTbx.getText().isEmpty() || TCodeTbx.getText().isEmpty() || UCodeTbx.getText().isEmpty() || FDestCb3.getSelectedIndex() == -1 || PriceTbx.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(this, "Missing Information");
         } else{
             try{
                 Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest","ien","7302");
                 PreparedStatement Add = Con.prepareStatement("INSERT INTO FlightsTbl VALUES(?,?,?,?,?)");
-                Add.setString(1, FCodeTb.getText());
-                Add.setString(2, FSourceCb.getSelectedItem().toString());
-                Add.setString(3, FDestCb.getSelectedItem().toString());
-                java.util.Date javaDate = FDateTb.getDate();
-		long javaTime = javaDate.getTime();
-		java.sql.Date sqlDate = new java.sql.Date(javaTime);
-                Add.setDate(4, sqlDate);
-                Add.setInt(5, Integer.valueOf(FSeatsTb.getText()));
+                Add.setString(1, FCodeTbx.getText());
+                Add.setString(2, TCodeTbx.getText());
+                Add.setString(3, UCodeTbx.getText());
+                Add.setString(4, FDestCb3.getSelectedItem().toString());    
+                Add.setString(5, PriceTbx.getText());
                 int row = Add.executeUpdate();
                 JOptionPane.showMessageDialog(this, "Flight Added");
                 Con.close();
@@ -343,16 +323,11 @@ public class TicketManager extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel)FlightsTable.getModel();
         int MyIndex = FlightsTable.getSelectedRow();
         Key = model.getValueAt(MyIndex, 0).toString();
-        FCodeTb.setText(model.getValueAt(MyIndex,0).toString());
-        FSourceCb.setSelectedItem(model.getValueAt(MyIndex, 1).toString());
-        FDestCb.setSelectedItem(model.getValueAt(MyIndex, 2).toString());
-        try {
-            Date newDate = new SimpleDateFormat("yyyy-MM-dd").parse((String)model.getValueAt(MyIndex, 3));
-            FDateTb.setDate(newDate);
-        } catch (ParseException ex) {
-            Logger.getLogger(TicketManager.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        FSeatsTb.setText(model.getValueAt(MyIndex, 4).toString());
+        FCodeTbx.setText(model.getValueAt(MyIndex,0).toString());
+        TCodeTbx.setText(model.getValueAt(MyIndex,1).toString());
+        UCodeTbx.setText(model.getValueAt(MyIndex,2).toString());
+        FDestCb3.setSelectedItem(model.getValueAt(MyIndex,3).toString());
+        PriceTbx.setText(model.getValueAt(MyIndex,4).toString());
     }//GEN-LAST:event_FlightsTableMouseClicked
 
     private void EditBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EditBtnMouseClicked
@@ -362,16 +337,12 @@ public class TicketManager extends javax.swing.JFrame {
         } else{
             try{
                 Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest","ien","7302");
-                String Query = "UPDATE FlightsTbl SET FlSource=?,FlDest=?,FlDate=?,FlSeats=? WHERE FlCode=?";
+                String Query = "UPDATE FlightsTbl SET FlCode='" + FCodeTbx.getText() 
+                    + "',TCode='" + TCodeTbx.getText() 
+                    + "',UCode='" + UCodeTbx.getText() 
+                    + "',TStatus='" + FDestCb3.getSelectedItem().toString() 
+                    + "',Price='" + PriceTbx.getText() + "' WHERE FlCode='" + Key + "'";
                 PreparedStatement Add = Con.prepareStatement(Query);
-                Add.setString(5, Key);
-                Add.setString(1, FSourceCb.getSelectedItem().toString());
-                Add.setString(2, FDestCb.getSelectedItem().toString());
-                java.util.Date javaDate = FDateTb.getDate();
-                long javaTime = javaDate.getTime();
-                java.sql.Date sqlDate = new java.sql.Date(javaTime);
-                Add.setDate(3, sqlDate);
-                Add.setString(4, FSeatsTb.getText());
                 int row = Add.executeUpdate();
                 JOptionPane.showMessageDialog(this, "Flight updated");
                 Con.close();
@@ -423,20 +394,19 @@ public class TicketManager extends javax.swing.JFrame {
     private javax.swing.JButton BackBtn;
     private javax.swing.JButton DeleteBtn;
     private javax.swing.JButton EditBtn;
-    private javax.swing.JComboBox<String> FDestCb;
-    private javax.swing.JComboBox<String> FDestCb1;
-    private javax.swing.JComboBox<String> FDestCb2;
+    private javax.swing.JTextField FCodeTbx;
     private javax.swing.JComboBox<String> FDestCb3;
-    private javax.swing.JComboBox<String> FDestCb4;
     private javax.swing.JTable FlightsTable;
+    private javax.swing.JTextField PriceTbx;
     private javax.swing.JButton SaveBtn;
+    private javax.swing.JTextField TCodeTbx;
+    private javax.swing.JTextField UCodeTbx;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables

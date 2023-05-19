@@ -106,6 +106,7 @@ public class Payments extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         setSize(new java.awt.Dimension(800, 300));
 
         jPanel1.setBackground(new java.awt.Color(27, 46, 83));
@@ -177,11 +178,13 @@ public class Payments extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
+        new Main().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void BookingListTblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BookingListTblMouseClicked

@@ -17,13 +17,22 @@ public class Login extends javax.swing.JFrame {
      */
 
     public static String username;
+    public static String frame;
 
     public static String getUsername() {
         return username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public static String getFrame() {
+        return frame;
+    }
+
+    public static void setUsername(String username) {
+        Login.username = username;
+    }
+
+    public static void setFrame(String frame) {
+        Login.frame = frame;
     }
 
     public Login() {
@@ -233,12 +242,14 @@ public class Login extends javax.swing.JFrame {
                         new Main().pack();
                         new Main().setLocationRelativeTo(null);
                         setUsername(UsernameTb.getText());
+                        setFrame("Admin");
                         new Main().setDefaultCloseOperation(Login.EXIT_ON_CLOSE);
                     } else {
                         new User().setVisible(true);
                         new User().pack();
                         new User().setLocationRelativeTo(null);
                         setUsername(UsernameTb.getText());
+                        setFrame("User");
                         new User().setDefaultCloseOperation(Login.EXIT_ON_CLOSE);
                     }
                     this.dispose();
