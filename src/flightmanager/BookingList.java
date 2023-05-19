@@ -145,6 +145,27 @@ public class BookingList extends javax.swing.JFrame {
 
     }
 
+    public static double tinhGiaMayBay(String hangHangKhong, double khoangCach) {
+        double giaVe;
+        if (hangHangKhong.equalsIgnoreCase("VJ")) {
+            giaVe = khoangCach * 1500 * 1.6; // giá vé VietJet
+        } else if (hangHangKhong.equalsIgnoreCase("VU")) {
+            giaVe = khoangCach * 1650 * 1.6; // giá vé VietTravel
+        } else if (hangHangKhong.equalsIgnoreCase("QH")) {
+            giaVe = khoangCach * 1800 * 1.6; // giá vé BambooAirways
+        }
+        else if (hangHangKhong.equalsIgnoreCase("VN")) {
+            giaVe = khoangCach * 2000 * 1.6; // giá vé VietNamAirline
+        } else {
+            return -1; // trả về -1 nếu không phải hãng hàng không hợp lệ
+        }
+
+        double thueMoitruong = giaVe * 0.1; // tính thuế môi trường
+        double thueSanBay = giaVe * 0.05; // tính thuế sân bay
+        double giaMayBay = giaVe + thueMoitruong + thueSanBay; // tính giá máy bay
+        return giaMayBay;
+    }
+
     public static Date formatDate(String dateString) {
         SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
         SimpleDateFormat outputFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
@@ -207,7 +228,6 @@ public class BookingList extends javax.swing.JFrame {
                         xpath.evaluate("./FlightLegDetails/DepartureAirport/@LocationCode", flightNode));
                 flight.setArrival(
                         xpath.evaluate("./FlightLegDetails/ArrivalAirport/@LocationCode", flightNode));
-                
 
                 String departureDateStr = xpath.evaluate("./FlightLegDetails/@DepartureDateTime", flightNode);
                 String tempTime = departureDateStr.substring(11, 13) + departureDateStr.substring(14, 16);
@@ -216,6 +236,10 @@ public class BookingList extends javax.swing.JFrame {
                 System.out.println(tempID);
                 flight.setFlightId(tempID);
                 String arrivalDateStr = xpath.evaluate("./FlightLegDetails/@ArrivalDateTime", flightNode);
+                String Airline = xpath.evaluate("./FlightLegDetails/MarketingAirline/@Code", flightNode);
+                String Distance = xpath.evaluate("./FlightLegDetails/@LegDistance", flightNode);
+                double tempPrice = tinhGiaMayBay(Airline, Double.parseDouble(Distance));
+                int intPrice = (int)Math.round(tempPrice / 1000.0) * 1000;
                 flight.setDepartureDate(formatDate(departureDateStr));
                 flight.setArrivalDate(formatDate(arrivalDateStr));
                 flights.add(flight);
@@ -240,11 +264,14 @@ public class BookingList extends javax.swing.JFrame {
                 Date date1 = formatDate(arrivalDateStr);
                 Timestamp timestamp1 = new Timestamp(date1.getTime());
                 ps.setTimestamp(6, timestamp1);
-                ps.setInt(7, 80);
-                ps.setInt(8, 80000000);
+                Random random = new Random();
+                int seats = random.nextInt(41) + 60;
+                ps.setInt(7, seats);
+                ps.setInt(8, intPrice);
                 ps.executeUpdate();
-                Object[] newRow = {flight.flightId, flight.airline, flight.departure, flight.arrival, flight.departureDate,
-                        flight.arrivalDate, 80, 80000000};
+                Object[] newRow = { flight.flightId, flight.airline, flight.departure, flight.arrival,
+                        flight.departureDate,
+                        flight.arrivalDate, seats, intPrice };
                 DefaultTableModel model = (DefaultTableModel) BookingListTbl.getModel();
                 model.addRow(newRow);
             }
@@ -254,12 +281,13 @@ public class BookingList extends javax.swing.JFrame {
 
         // khuc nay dung api nen de do
 
-        
         // try {
-        //     Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest", "ien", "7302");
-        //     Statement St = conn.createStatement();
-        //     ResultSet Rs = St.executeQuery("SELECT * FROM Flights");
-        //     BookingListTbl.setModel(DbUtils.resultSetToTableModel(Rs));
+        // Connection conn =
+        // DriverManager.getConnection("jdbc:postgresql://localhost/Flytest", "ien",
+        // "7302");
+        // Statement St = conn.createStatement();
+        // ResultSet Rs = St.executeQuery("SELECT * FROM Flights");
+        // BookingListTbl.setModel(DbUtils.resultSetToTableModel(Rs));
         // } catch (Exception e) {
         // }
 
@@ -272,7 +300,8 @@ public class BookingList extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -289,13 +318,13 @@ public class BookingList extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(27, 46, 83));
 
         BookingListTbl.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+                new Object[][] {
 
-            },
-            new String [] {
-                "Fly ID", "Airline", "Departure", "Destination", "Departure Time", "Arrival Time", "Available seats", "Price"
-            }
-        ));
+                },
+                new String[] {
+                        "Fly ID", "Airline", "Departure", "Destination", "Departure Time", "Arrival Time",
+                        "Available seats", "Price"
+                }));
         BookingListTbl.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BookingListTblMouseClicked(evt);
@@ -334,63 +363,65 @@ public class BookingList extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 285, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(BookBtn)
-                                .addGap(20, 20, 20))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addGap(205, 205, 205)
-                                .addComponent(BackBtn)
-                                .addContainerGap())))))
-        );
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(jScrollPane1)
+                                                .addContainerGap())
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout
+                                                .createSequentialGroup()
+                                                .addGap(0, 285, Short.MAX_VALUE)
+                                                .addGroup(jPanel1Layout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
+                                                                jPanel1Layout.createSequentialGroup()
+                                                                        .addComponent(BookBtn)
+                                                                        .addGap(20, 20, 20))
+                                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
+                                                                jPanel1Layout.createSequentialGroup()
+                                                                        .addComponent(jLabel9)
+                                                                        .addGap(205, 205, 205)
+                                                                        .addComponent(BackBtn)
+                                                                        .addContainerGap()))))));
         jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(jLabel9))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(BackBtn)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BookBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(17, 17, 17)
+                                                .addComponent(jLabel9))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addContainerGap()
+                                                .addComponent(BackBtn)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(BookBtn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
+                                .addContainerGap()));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BackBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackBtnMouseClicked
+    private void BackBtnMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_BackBtnMouseClicked
         new User().setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_BackBtnMouseClicked
+    }// GEN-LAST:event_BackBtnMouseClicked
 
     private static String Key = "";
     private int price;
@@ -405,7 +436,7 @@ public class BookingList extends javax.swing.JFrame {
     public static void setKey(String key) {
         Key = key;
     }
-    
+
     public int getPrice() {
         return price;
     }
@@ -420,9 +451,7 @@ public class BookingList extends javax.swing.JFrame {
         setPrice(Integer.parseInt(BookingListTbl.getValueAt(row, 7).toString()));
         System.out.println(price);
         System.out.println(Key);
-        
-        
-        
+
     }// GEN-LAST:event_BookingListTblMouseClicked
 
     private void BookBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_BookBtnActionPerformed
@@ -430,24 +459,26 @@ public class BookingList extends javax.swing.JFrame {
     }// GEN-LAST:event_BookBtnActionPerformed
 
     private void BookBtnMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_BookBtnMouseClicked
-//        Payment pay = new Payment();
-          String username = Login.getUsername();
+        // Payment pay = new Payment();
+        String username = Login.getUsername();
 
-//        pay.setVisible(true);
-         try {
+        // pay.setVisible(true);
+        try {
             Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest", "ien", "7302");
             St = Con.createStatement();
             System.out.println(price);
             System.out.println(Key);
             System.out.println(username);
-            Rs = St.executeQuery("INSERT INTO bookings (user_id, flight_id, price) VALUES ('" + username + "', '" + getKey() + "', " + getPrice() + ")");
+            Rs = St.executeQuery("INSERT INTO bookings (user_id, flight_id, price) VALUES ('" + username + "', '"
+                    + getKey() + "', " + getPrice() + ")");
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        JOptionPane.showMessageDialog(this, "Ticket booked successfully, check the payment tab to proceed to checkout.");
+        JOptionPane.showMessageDialog(this,
+                "Ticket booked successfully, check the payment tab to proceed to checkout.");
         this.dispose();
         new User().setVisible(true);
-        
+
     }// GEN-LAST:event_BookBtnMouseClicked
 
     /**

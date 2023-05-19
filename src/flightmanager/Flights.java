@@ -280,7 +280,7 @@ public class Flights extends javax.swing.JFrame {
         } else{
             try {
                 Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest","ien","7302");
-                String Query = "DELETE FROM flights WHERE FlCode='" + Key + "'";
+                String Query = "DELETE FROM flights WHERE flight_id='" + Key + "'";
                 Statement Del = Con.createStatement();
                 Del.executeUpdate(Query);
                 JOptionPane.showMessageDialog(this, "Flight deleted");
@@ -298,10 +298,10 @@ public class Flights extends javax.swing.JFrame {
         int MyIndex = FlightsTable.getSelectedRow();
         Key = model.getValueAt(MyIndex, 0).toString();
         FCodeTb.setText(model.getValueAt(MyIndex,0).toString());
-        FSourceTbx.setText(model.getValueAt(MyIndex, 1).toString());
-        FDesTbx.setText(model.getValueAt(MyIndex, 2).toString());
-        FSeatsTb.setText(model.getValueAt(MyIndex, 3).toString());
-        PriceTbx.setText(model.getValueAt(MyIndex, 4).toString());
+        FSourceTbx.setText(model.getValueAt(MyIndex, 2).toString());
+        FDesTbx.setText(model.getValueAt(MyIndex, 3).toString());
+        FSeatsTb.setText(model.getValueAt(MyIndex, 6).toString());
+        PriceTbx.setText(model.getValueAt(MyIndex, 7).toString());
     }//GEN-LAST:event_FlightsTableMouseClicked
 
     private void EditBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EditBtnMouseClicked
@@ -311,13 +311,11 @@ public class Flights extends javax.swing.JFrame {
         } else{
             try{
                 Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest","ien","7302");
-                String Query = "UPDATE flights SET FlSource=?,FlDest=?,FlDate=?,FlSeats=? WHERE FlCode=?";
+                String Query = "UPDATE flights SET available_seats=?, price=? WHERE flight_id=?";
                 PreparedStatement Add = Con.prepareStatement(Query);
-                Add.setString(5, Key);
-                Add.setString(1, FSourceTbx.getText().toString());
-                Add.setString(2, FDesTbx.getText().toString());
-                Add.setString(3, FSeatsTb.getText());
-                Add.setString(4, PriceTbx.getText());
+                Add.setString(3, Key);
+                Add.setInt(1, Integer.valueOf(FSeatsTb.getText()));
+                Add.setInt(2, Integer.valueOf(PriceTbx.getText()));
                 int row = Add.executeUpdate();
                 JOptionPane.showMessageDialog(this, "Flight updated");
                 Con.close();

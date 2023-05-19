@@ -32,6 +32,7 @@ public class Pay extends javax.swing.JFrame {
     public Pay() {
         initComponents();
         DisplayFlight();
+        DisplayTicket();
     }
 
     Connection Con = null;
@@ -413,9 +414,9 @@ public class Pay extends javax.swing.JFrame {
         try {
             Connection Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest", "ien", "7302");
             Statement St = Con.createStatement();
-            String Query = "SELECT * FROM bookings";
+            String Query = "SELECT * FROM bookings where user_id = '" + Login.getUsername()+ "'";
             ResultSet Rs = St.executeQuery(Query);
-            TicketsTbl.setModel(DbUtils.resultSetToTableModel(Rs));
+            PaymentHistoryTbl.setModel(DbUtils.resultSetToTableModel(Rs));
         } catch (Exception e) {
         }
     }
