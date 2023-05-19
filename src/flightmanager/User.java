@@ -182,7 +182,7 @@ public class User extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6MouseClicked
 
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
-        new TicketBooking().setVisible(true);
+        new Pay().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton7MouseClicked
 
