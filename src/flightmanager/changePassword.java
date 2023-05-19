@@ -154,6 +154,7 @@ public class changePassword extends javax.swing.JFrame {
 
     private void CloseBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseBtnActionPerformed
         dispose();
+        new User().setVisible(true);
     }//GEN-LAST:event_CloseBtnActionPerformed
 
     private void txtNewPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNewPasswordActionPerformed

@@ -232,11 +232,11 @@ public class Cancellation extends javax.swing.JFrame {
         try {
             Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest","ien","7302");
             St = Con.createStatement();
-            String Query = "SELECT * FROM BookingTbl";
+            String Query = "SELECT * FROM bookings where user_id='" + Login.getUsername() + "' where status='Pending'";
             Rs = St.executeQuery(Query);
             while (Rs.next())
             {
-                int T = Rs.getInt("TicketId");
+                int T = Rs.getInt("booking_id");
                 TIdCb.addItem(String.valueOf(T));
             }
         } catch (Exception e) {
@@ -245,7 +245,7 @@ public class Cancellation extends javax.swing.JFrame {
     
     private void GetFCode()
     {
-        String Query = "SELECT * FROM BookingTbl WHERE TicketId=" + TIdCb.getSelectedItem().toString();
+        String Query = "SELECT * FROM bookings WHERE booking_id=" + TIdCb.getSelectedItem().toString();
         Statement St;
         ResultSet Rs;
         try {
@@ -254,7 +254,7 @@ public class Cancellation extends javax.swing.JFrame {
             Rs = St.executeQuery(Query);
             if (Rs.next())
             {
-                FCodeTb.setText(Rs.getString("FlCode"));
+                FCodeTb.setText(Rs.getString("flight_id"));
             }
         } catch (Exception e) {
         }
@@ -265,7 +265,7 @@ public class Cancellation extends javax.swing.JFrame {
         try {
             Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest","ien","7302");
             St = Con.createStatement();
-            Rs = St.executeQuery("SELECT * FROM CancellationTbl");
+            Rs = St.executeQuery("SELECT * FROM bookings where user_id='" + Login.getUsername() + "' where status='Pending'");
             CancellationTable.setModel(DbUtils.resultSetToTableModel(Rs));
         } catch (Exception e) {
         }
@@ -276,7 +276,7 @@ public class Cancellation extends javax.swing.JFrame {
     {
          try {
             St1 = Con.createStatement();
-            Rs1 = St1.executeQuery("SELECT Max(CancId) FROM CancellationTbl");
+            Rs1 = St1.executeQuery("SELECT Max(CancId) FROM bookings");
             Rs1.next();
             CId = Rs1.getInt(1) + 1;
         } catch (Exception e) {
@@ -295,7 +295,7 @@ public class Cancellation extends javax.swing.JFrame {
             try{
                 CountCanc();
                 Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest","ien","7302");
-                PreparedStatement Add = Con.prepareStatement("INSERT INTO CancellationTbl VALUES(?,?,?,?)");
+                PreparedStatement Add = Con.prepareStatement("");
                 Add.setInt(1, CId);
                 Add.setInt(2, Integer.valueOf(TIdCb.getSelectedItem().toString()));
                 Add.setString(3, FCodeTb.getText());
@@ -316,7 +316,7 @@ public class Cancellation extends javax.swing.JFrame {
     }//GEN-LAST:event_CancelBtnMouseClicked
 
     private void BackBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackBtnMouseClicked
-        new Main().setVisible(true);
+        new User().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BackBtnMouseClicked
 
