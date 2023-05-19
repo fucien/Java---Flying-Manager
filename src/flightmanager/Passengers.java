@@ -4,6 +4,7 @@
  */
 package flightmanager;
 
+import java.awt.event.MouseEvent;
 import java.sql.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -38,7 +39,6 @@ public class Passengers extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        NatCb = new javax.swing.JComboBox<>();
         PName = new javax.swing.JTextField();
         PhoneNum = new javax.swing.JTextField();
         SaveBtn = new javax.swing.JButton();
@@ -48,6 +48,8 @@ public class Passengers extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         PassengersTable = new javax.swing.JTable();
         Passport = new javax.swing.JTextField();
+        Nat = new javax.swing.JTextField();
+        ResetBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -76,9 +78,6 @@ public class Passengers extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Phone number");
-
-        NatCb.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        NatCb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vietnamese", "French", "Australians" }));
 
         PName.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
 
@@ -113,6 +112,11 @@ public class Passengers extends javax.swing.JFrame {
                 DeleteBtnMouseClicked(evt);
             }
         });
+        DeleteBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteBtnActionPerformed(evt);
+            }
+        });
 
         BackBtn.setBackground(new java.awt.Color(255, 62, 62));
         BackBtn.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -135,6 +139,8 @@ public class Passengers extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        PassengersTable.setEditingColumn(0);
+        PassengersTable.setEditingRow(0);
         PassengersTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 PassengersTableMouseClicked(evt);
@@ -143,6 +149,26 @@ public class Passengers extends javax.swing.JFrame {
         jScrollPane1.setViewportView(PassengersTable);
 
         Passport.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Passport.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PassportMouseClicked(evt);
+            }
+        });
+
+        ResetBtn.setBackground(new java.awt.Color(255, 62, 62));
+        ResetBtn.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        ResetBtn.setForeground(new java.awt.Color(255, 255, 255));
+        ResetBtn.setText("Reset");
+        ResetBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ResetBtnMouseClicked(evt);
+            }
+        });
+        ResetBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ResetBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -155,47 +181,52 @@ public class Passengers extends javax.swing.JFrame {
                         .addComponent(jScrollPane1)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 80, Short.MAX_VALUE)
+                        .addGap(0, 34, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel3)
+                                .addGap(180, 180, 180))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(21, 21, 21)
                                         .addComponent(SaveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(37, 37, 37)
+                                        .addGap(40, 40, 40)
                                         .addComponent(EditBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(34, 34, 34)
+                                        .addGap(37, 37, 37)
                                         .addComponent(DeleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(30, 30, 30)
-                                        .addComponent(BackBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(33, 33, 33)
+                                        .addComponent(ResetBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(Passport, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel4))
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(14, 14, 14)
+                                                .addComponent(Passport, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(31, 31, 31)
+                                                .addComponent(jLabel4)))
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(18, 18, 18)
+                                                .addComponent(PName, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(44, 44, 44)
+                                                .addComponent(jLabel1)))
+                                        .addGap(36, 36, 36)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(Nat, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                                .addComponent(jLabel2)
+                                                .addGap(20, 20, 20)))))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addGap(33, 33, 33)
+                                        .addComponent(BackBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(37, 37, 37))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(18, 18, 18)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel1)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(6, 6, 6)
-                                                .addComponent(PName, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(17, 17, 17)
-                                                .addComponent(NatCb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel2)
-                                                .addGap(29, 29, 29)))
-                                        .addGap(27, 27, 27)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(6, 6, 6)
-                                                .addComponent(PhoneNum, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(jLabel6))))
-                                .addGap(37, 37, 37))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(180, 180, 180))))))
+                                            .addComponent(jLabel6)
+                                            .addComponent(PhoneNum, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))))))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -203,25 +234,25 @@ public class Passengers extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel6)
-                        .addComponent(jLabel2)
-                        .addComponent(jLabel1))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(NatCb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(PName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Passport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(PhoneNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(PName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Passport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PhoneNum)
+                    .addComponent(Nat))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(SaveBtn)
                     .addComponent(EditBtn)
                     .addComponent(DeleteBtn)
-                    .addComponent(BackBtn))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(BackBtn)
+                        .addComponent(ResetBtn)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
                 .addContainerGap())
@@ -231,7 +262,7 @@ public class Passengers extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 709, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -258,6 +289,11 @@ public class Passengers extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }
+
+    private void reset(){
+        this.dispose();
+        new Passengers().setVisible(true);
+    }
     
     int PassId = 0;
     private void CountPassengers()
@@ -274,10 +310,19 @@ public class Passengers extends javax.swing.JFrame {
     private void Clear()
     {
         PName.setText("");
-        NatCb.setSelectedIndex(0);
+        Nat.setText("");
         Passport.setText("");
         PhoneNum.setText("");
+        Key = "";
     }
+
+    private void PassportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PassportMouseClicked
+        // TODO add your handling code here:
+        if (Key == "")
+            Passport.setEditable(true);
+        else
+            Passport.setEditable(false);
+    }//GEN-LAST:event_PassportMouseClicked
     
     private void SaveBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SaveBtnMouseClicked
         if (PName.getText().isEmpty() || PhoneNum.getText().isEmpty() || Passport.getText().isEmpty())
@@ -287,12 +332,11 @@ public class Passengers extends javax.swing.JFrame {
             try{
                 CountPassengers();
                 Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest", "ien", "7302");
-                PreparedStatement Add = Con.prepareStatement("INSERT INTO users VALUES(?,?,?,?,?)");
-                Add.setInt(1, PassId);
-                Add.setString(2, PName.getText());
-                Add.setString(3, NatCb.getSelectedItem().toString());
-                Add.setString(4, Passport.getText());
-                Add.setString(5, PhoneNum.getText());
+                PreparedStatement Add = Con.prepareStatement("INSERT INTO users VALUES(?,?,?,?)");
+                Add.setString(1, PName.getText());
+                Add.setString(2, Nat.getText());
+                Add.setString(3, Passport.getText());
+                Add.setString(4, PhoneNum.getText());
                 int row = Add.executeUpdate();
                 JOptionPane.showMessageDialog(this, "Passenger Added");
                 Con.close();
@@ -312,9 +356,10 @@ public class Passengers extends javax.swing.JFrame {
             try {
                 Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest", "ien", "7302");
                 String Id = String.valueOf(Key);
-                String Query = "DELETE FROM users WHERE user_id = " + Id;
+                String Query = "DELETE FROM users WHERE passport = '" + Key + "'";
                 Statement Add = Con.createStatement();
                 Add.executeUpdate(Query);
+                JOptionPane.showMessageDialog(this,"Passenger Deleted.");
                 DisplayPassengers();
                 Clear();
             } catch (Exception e) {
@@ -329,7 +374,7 @@ public class Passengers extends javax.swing.JFrame {
         int MyIndex = PassengersTable.getSelectedRow();
         Key = model.getValueAt(MyIndex, 2).toString();
         PName.setText(model.getValueAt(MyIndex, 0).toString());
-        NatCb.setSelectedItem(model.getValueAt(MyIndex, 1).toString());
+        Nat.setText(model.getValueAt(MyIndex, 1).toString());
         Passport.setText(model.getValueAt(MyIndex, 2).toString());
         PhoneNum.setText(model.getValueAt(MyIndex, 3).toString());
     }//GEN-LAST:event_PassengersTableMouseClicked
@@ -346,13 +391,12 @@ public class Passengers extends javax.swing.JFrame {
         } else{
             try{
                 Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest", "ien", "7302");
-                String Query = "UPDATE users SET name=?,nationality=?,passport=?,phone_number=? WHERE user_id=?";
+                String Query = "UPDATE users SET name=?,nationality=?,phone_number=? WHERE passport=?";
                 PreparedStatement Add = Con.prepareStatement(Query);
                 Add.setString(1, PName.getText());
-                Add.setString(2, NatCb.getSelectedItem().toString());
-                Add.setString(3, Passport.getText());
-                Add.setString(4, PhoneNum.getText());
-                Add.setString(5, Key);
+                Add.setString(2, Nat.getText());
+                Add.setString(3, PhoneNum.getText());
+                Add.setString(4, Key);
                 int row = Add.executeUpdate();
                 JOptionPane.showMessageDialog(this, "Passenger updated");
                 Con.close();
@@ -363,6 +407,19 @@ public class Passengers extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_EditBtnMouseClicked
+
+    private void ResetBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResetBtnMouseClicked
+        // TODO add your handling code here:
+        reset();
+    }//GEN-LAST:event_ResetBtnMouseClicked
+
+    private void ResetBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ResetBtnActionPerformed
+
+    private void DeleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DeleteBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -403,11 +460,12 @@ public class Passengers extends javax.swing.JFrame {
     private javax.swing.JButton BackBtn;
     private javax.swing.JButton DeleteBtn;
     private javax.swing.JButton EditBtn;
-    private javax.swing.JComboBox<String> NatCb;
+    private javax.swing.JTextField Nat;
     private javax.swing.JTextField PName;
     private javax.swing.JTable PassengersTable;
     private javax.swing.JTextField Passport;
     private javax.swing.JTextField PhoneNum;
+    private javax.swing.JButton ResetBtn;
     private javax.swing.JButton SaveBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

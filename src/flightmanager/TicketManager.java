@@ -146,8 +146,10 @@ public class TicketManager extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(FlightsTable);
 
+        TCodeTbx.setEditable(false);
+
         FDestCb3.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        FDestCb3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Paid", "Unpaid", " " }));
+        FDestCb3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Paid", "Cancelled", "Pending" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -282,14 +284,13 @@ public class TicketManager extends javax.swing.JFrame {
         } else{
             try{
                 Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest","ien","7302");
-                PreparedStatement Add = Con.prepareStatement("INSERT INTO FlightsTbl VALUES(?,?,?,?,?)");
-                Add.setString(1, FCodeTbx.getText());
-                Add.setString(2, TCodeTbx.getText());
-                Add.setString(3, UCodeTbx.getText());
-                Add.setString(4, FDestCb3.getSelectedItem().toString());    
-                Add.setString(5, PriceTbx.getText());
+                PreparedStatement Add = Con.prepareStatement("INSERT INTO bookings (user_id, flight_id, status, price) VALUES (?,?,?,?)" );
+                Add.setString(1, UCodeTbx.getText());
+                Add.setString(2, FCodeTbx.getText());
+                Add.setString(3, FDestCb3.getSelectedItem().toString());
+                Add.setString(4, PriceTbx.getText());
                 int row = Add.executeUpdate();
-                JOptionPane.showMessageDialog(this, "Flight Added");
+                JOptionPane.showMessageDialog(this, "Ticket Added");
                 Con.close();
                 DisplayFlight();
                 Clear();
@@ -302,14 +303,14 @@ public class TicketManager extends javax.swing.JFrame {
     private void DeleteBtnMouseClicked(java.awt.event.MouseEvent evt) {                                       
         if (Key == "")
         {
-            JOptionPane.showMessageDialog(this, "Select a flight");
+            JOptionPane.showMessageDialog(this, "Select a ticket");
         } else{
             try {
                 Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest","ien","7302");
-                String Query = "DELETE FROM FlightsTbl WHERE FlCode='" + Key + "'";
+                String Query = "DELETE FROM bookings WHERE booking_id='" + Key + "'";
                 Statement Del = Con.createStatement();
                 Del.executeUpdate(Query);
-                JOptionPane.showMessageDialog(this, "Flight deleted");
+                JOptionPane.showMessageDialog(this, "Ticket deleted");
                 DisplayFlight();
                 Clear();
             } catch (Exception e) {
@@ -323,28 +324,30 @@ public class TicketManager extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel)FlightsTable.getModel();
         int MyIndex = FlightsTable.getSelectedRow();
         Key = model.getValueAt(MyIndex, 0).toString();
-        FCodeTbx.setText(model.getValueAt(MyIndex,0).toString());
-        TCodeTbx.setText(model.getValueAt(MyIndex,1).toString());
-        UCodeTbx.setText(model.getValueAt(MyIndex,2).toString());
-        FDestCb3.setSelectedItem(model.getValueAt(MyIndex,3).toString());
-        PriceTbx.setText(model.getValueAt(MyIndex,4).toString());
+
+        TCodeTbx.setText(model.getValueAt(MyIndex,0).toString());
+        UCodeTbx.setText(model.getValueAt(MyIndex,1).toString());
+        FCodeTbx.setText(model.getValueAt(MyIndex,2).toString());
+        PriceTbx.setText(model.getValueAt(MyIndex,3).toString());
+        FDestCb3.setSelectedItem(model.getValueAt(MyIndex,4).toString());
+
     }                                         
 
     private void EditBtnMouseClicked(java.awt.event.MouseEvent evt) {                                     
         if (Key == "")
         {
-            JOptionPane.showMessageDialog(this, "Select a flight");
+            JOptionPane.showMessageDialog(this, "Select a ticket");
         } else{
             try{
                 Con = DriverManager.getConnection("jdbc:postgresql://localhost/Flytest","ien","7302");
-                String Query = "UPDATE FlightsTbl SET FlCode='" + FCodeTbx.getText() 
-                    + "',TCode='" + TCodeTbx.getText() 
-                    + "',UCode='" + UCodeTbx.getText() 
-                    + "',TStatus='" + FDestCb3.getSelectedItem().toString() 
-                    + "',Price='" + PriceTbx.getText() + "' WHERE FlCode='" + Key + "'";
+                String Query = "UPDATE bookings SET flight_id='" + FCodeTbx.getText() 
+                + "', user_id='" + UCodeTbx.getText() 
+                + "', status='" + FDestCb3.getSelectedItem().toString()
+                + "', price=" + PriceTbx.getText() 
+                + " WHERE booking_id='" + Key + "'";
                 PreparedStatement Add = Con.prepareStatement(Query);
                 int row = Add.executeUpdate();
-                JOptionPane.showMessageDialog(this, "Flight updated");
+                JOptionPane.showMessageDialog(this, "Ticket updated");
                 Con.close();
                 DisplayFlight();
                 Clear();
